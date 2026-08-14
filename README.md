@@ -34,6 +34,7 @@ Antes de la IA: 31 años de infraestructura corporativa de verdad — Banco Sant
 | [**Libre ME Office**](https://apps.microsoft.com/detail/9NDGR2F120T6) | Microsoft Store | Suite ofimática empaquetada en MSIX firmado |
 | [**Multi Instance for Claude Desktop**](https://apps.microsoft.com/detail/9NG247TJ47P0) | Microsoft Store | Varias instancias de Claude Desktop en paralelo, cada una con su cuenta y sus MCP |
 | [**Copy-on-Select**](https://apps.microsoft.com/detail/9pcvrvr3qqks) | Microsoft Store | Copiar al seleccionar en Windows. Producto de pago con ventas reales |
+| [**GreenIAshot**](https://apps.microsoft.com/detail/9NBRZZZFCJBG) | Microsoft Store | OCR local sobre capturas con la API nativa de Windows — sin modelos, sin red, sin telemetría |
 | [**Agente AWS Bedrock**](https://bedrock.sypnose.cloud/demo/1a9b6ff25f5c485ab502d34a) | Demo en vivo | Agente empresarial sobre Bedrock — se puede conversar con él |
 | [**GestoriaRD**](https://gestoriard.com) | Producción | SaaS fiscal multi-tenant · 314 clientes B2B · 930 APIs · 183 tablas PostgreSQL |
 | [**Stratos Trade**](https://stratos-trade.com) | Beta | Trading algorítmico en Rust · 3 bots 24/7 · CME Futures · cTrader API |
@@ -51,6 +52,12 @@ Antes de la IA: 31 años de infraestructura corporativa de verdad — Banco Sant
 | [**boris-workflow**](https://github.com/radelqui/boris-workflow) | «Sin evidencia de que funciona, no está hecho». Hooks que bloquean el commit sin prueba |
 | [**openclaw-expert-brain**](https://github.com/radelqui/openclaw-expert-brain) | Consulta 185 fuentes curadas vía NotebookLM desde Claude Code, en 40 líneas |
 | [**agent-sypnose**](https://github.com/sypnose-cloud/agent-sypnose) | Agentes de navegador y búsqueda conectados al sistema Sypnose |
+
+---
+
+## Integraciones con sistemas de terceros
+
+**QuickBooks Enterprise 2024 vía SOAP/QBWC** — sincronización de clientes, facturas y pagos de un despacho contable real hacia PostgreSQL, con emparejamiento por RNC y jail de Fail2ban dedicado al endpoint SOAP · **Microsoft Graph / Office 365 / SharePoint** — gestión documental empresarial · **DGII** (agencia tributaria dominicana) — pipeline de scraping auto-sanable con login de 3 factores, 3.093 documentos en pgvector · **Rithmic API** (futuros CME) y **cTrader/FIX** — cuentas de broker reales conectadas, no simulación
 
 ---
 
