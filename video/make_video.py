@@ -28,7 +28,13 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 W, H = 1920, 1080
 FPS = 30
-DURATION = 60.0
+
+# Duración por defecto y reparto original de escenas. Si se pasa --timings, la
+# línea de tiempo se reconstruye sobre las fronteras reales de la locución.
+BASE_BOUNDS = [0.0, 8.5, 23.5, 35.5, 46.5, 60.0]
+SCENE_ORDER = ["intro", "results", "selfrate", "filters", "close"]
+
+DURATION = BASE_BOUNDS[-1]
 TOTAL = int(DURATION * FPS)
 
 # Paleta clara, alineada con el CV (blanco + azul corporativo)
@@ -219,13 +225,30 @@ def paste_photo(base, photo, cx, cy, alpha=1.0, scale=1.0):
 
 # ------------------------------------------------------------------- guion
 
-SCENES = [
-    ("intro", 0.0, 8.5),
-    ("results", 8.5, 23.5),
-    ("selfrate", 23.5, 35.5),
-    ("filters", 35.5, 46.5),
-    ("close", 46.5, 60.0),
-]
+# (nombre, inicio, fin, factor). El factor reajusta el reloj interno de la
+# escena: si dura más que en el reparto original, sus animaciones se reparten
+# por todo el hueco en vez de terminar pronto y dejar la imagen congelada.
+SCENES = []
+
+
+def set_timeline(bounds):
+    """Reconstruye SCENES, DURATION y TOTAL a partir de las fronteras dadas."""
+    global SCENES, DURATION, TOTAL
+    if len(bounds) != len(SCENE_ORDER) + 1:
+        raise ValueError(f"hacen falta {len(SCENE_ORDER) + 1} tiempos, "
+                         f"recibidos {len(bounds)}")
+    SCENES = []
+    for i, name in enumerate(SCENE_ORDER):
+        base = BASE_BOUNDS[i + 1] - BASE_BOUNDS[i]
+        actual = bounds[i + 1] - bounds[i]
+        if actual <= 0:
+            raise ValueError(f"la escena {name} no tiene duración positiva")
+        SCENES.append((name, bounds[i], bounds[i + 1], base / actual))
+    DURATION = bounds[-1]
+    TOTAL = int(round(DURATION * FPS))
+
+
+set_timeline(BASE_BOUNDS)
 
 # Escena 2 — los "resultados esperados" que enumera la oferta, con la evidencia
 RESULTS = [
@@ -433,9 +456,11 @@ def render_frame(idx, bg, photo):
     base = bg.copy()
     d = ImageDraw.Draw(base)
 
-    for name, start, end in SCENES:
+    for name, start, end, k in SCENES:
         if start <= now < end:
-            DRAW[name](base, d, now, start, photo)
+            # El reloj de la escena se escala para que las entradas ocupen
+            # todo el hueco disponible, sea cual sea su duración real.
+            DRAW[name](base, d, start + (now - start) * k, start, photo)
             tail = end - now
             if tail < 0.25 and end < DURATION:      # fundido entre escenas
                 k = (1 - tail / 0.25) * 0.9
@@ -453,7 +478,15 @@ def main():
     ap.add_argument("--photo", required=True)
     ap.add_argument("--out", default="video/carlos-delatorre-omnidental-60s.mp4")
     ap.add_argument("--frames", default="/tmp/vid_frames")
+    ap.add_argument("--timings", help="fronteras de escena en segundos, separadas "
+                                      "por comas: 0,10.9,29.7,43.6,55.4,71.5")
     args = ap.parse_args()
+
+    if args.timings:
+        set_timeline([float(x) for x in args.timings.split(",")])
+        print("Línea de tiempo:")
+        for name, a, b, k in SCENES:
+            print(f"  {name:9s} {a:6.2f} -> {b:6.2f}s  ({b - a:5.2f}s, x{k:.3f})")
 
     if not os.path.exists(args.photo):
         sys.exit(f"No encuentro la foto: {args.photo}")
