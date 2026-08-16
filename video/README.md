@@ -9,7 +9,7 @@ persona ideal para este puesto»*.
 | Archivo | Qué es |
 |---|---|
 | **`carlos-delatorre-omnidental.gif`** | **El vídeo, en un formato que el campo sí acepta.** 960x540, 12 fps, 6,7 MB |
-| **`caratula-video-omnidental.pdf`** | **Lleva el MP4 real embebido dentro** (4,65 MB), más enlace, QR y escaleta |
+| **`caratula-video-omnidental.pdf`** | **El vídeo se reproduce con un clic dentro del PDF** (4,70 MB) |
 
 ### Los originales
 
@@ -55,7 +55,7 @@ python3 make_voice_real.py --audio grabacion.m4a --photo /ruta/foto.jpg
 python3 make_gif.py --video carlos-delatorre-omnidental.mp4 \
                     --out carlos-delatorre-omnidental.gif
 
-# 3. La carátula PDF, con el MP4 embebido dentro
+# 3. La carátula PDF, con el vídeo dentro y a un clic
 python3 make_caratula.py --url https://youtu.be/XXXX \
                          --video carlos-delatorre-omnidental-con-voz.mp4 \
                          --photo /ruta/foto.jpg
