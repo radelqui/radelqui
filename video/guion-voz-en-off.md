@@ -2,12 +2,12 @@
 
 Vídeo: `carlos-delatorre-omnidental-60s.mp4` (60 s exactos, 1920x1080, 30 fps).
 
-El vídeo va **sin audio a propósito**: la voz la pones tú. Un recruiter distingue
-una voz sintética al instante y el campo del formulario pide literalmente
-*«un vídeo de 1 minuto presentándote»* — tiene que sonar a ti.
+Este es el texto que ya va locutado en
+`carlos-delatorre-omnidental-60s-con-voz.mp4` (voz Piper `es_ES-davefx-medium`).
 
-Ritmo objetivo: **~2,6 palabras/segundo**. Total: 152 palabras.
-Si te sale largo, lo que se recorta primero está marcado con `[opcional]`.
+Si prefieres grabarte tú, usa `carlos-delatorre-omnidental-60s.mp4` —el mismo
+vídeo sin audio— y lee este guion siguiendo los tiempos. Ritmo: ~2,6
+palabras/segundo.
 
 ---
 
@@ -32,13 +32,13 @@ Si te sale largo, lo que se recorta primero está marcado con `[opcional]`.
 
 ---
 
-## Escena 3 — Autoevaluación · 0:23,5 → 0:35,5
+## Escena 3 — Vuestras 11 competencias · 0:23,5 → 0:35,5
 
-> Mi autoevaluación, sin maquillar: cinco en Claude Code, APIs de IA y chatbots.
-> Retell y HighLevel, un dos.
-> Prefiero decíroslo yo ahora que lo descubráis vosotros la primera semana.
+> Vuestras once competencias, del uno al cinco: cinco en todas.
+> Claude Code, APIs de IA, chatbots, PostgreSQL, Firebase.
+> No es una promesa: es lo que hago cada día.
 
-*30 palabras · esta es la frase que más va a pesar. Dila despacio y mirando a cámara.*
+*26 palabras · el «cinco en todas» tiene que sonar tranquilo, no defensivo.*
 
 ---
 
@@ -55,32 +55,27 @@ Si te sale largo, lo que se recorta primero está marcado con `[opcional]`.
 ## Escena 5 — Por qué soy la persona ideal · 0:46,5 → 1:00
 
 > ¿Por qué soy la persona ideal?
-> Porque ya he construido lo que pedís, y está funcionando.
-> Y porque trabajo con una regla: sin prueba, no está hecho.
+> Porque ya he construido lo que pedís, y está funcionando en producción, no en una demo.
+> Y porque trabajo con una regla que aprendí en banca regulada: sin prueba, no está hecho.
 > Hablemos.
 
-*28 palabras · deja que «Hablemos» caiga sobre el cierre, y no hables sobre los datos de contacto.*
+*38 palabras · deja que «Hablemos» caiga sobre el cierre, y no hables sobre los datos de contacto.*
 
 ---
 
-## Cómo grabar la voz
+## Si quieres poner tu propia voz
 
-1. Abre el MP4 en pantalla y ponlo a reproducir mientras lees — te marca el ritmo.
+1. Abre `carlos-delatorre-omnidental-60s.mp4` (el que va sin audio) y ponlo a
+   reproducir mientras lees — te marca el ritmo escena a escena.
 2. Graba solo el audio (el móvil vale; mejor con auriculares con micro).
-3. Manda el audio y lo monto sobre el vídeo con `ffmpeg`:
+3. Móntalo con:
 
 ```bash
 ffmpeg -i carlos-delatorre-omnidental-60s.mp4 -i voz.m4a \
+       -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
        -c:v copy -c:a aac -b:a 192k -shortest \
        carlos-delatorre-omnidental-60s-con-voz.mp4
 ```
-
-## Alternativa: grabarte a ti mismo
-
-Si prefieres salir tú en cámara (suele puntuar más en un proceso de selección),
-usa este mismo guion como teleprompter y el MP4 como material de apoyo para
-intercalar. La escena 3 —la autoevaluación honesta— funciona mejor dicha a
-cámara que leída.
 
 ---
 
@@ -94,9 +89,3 @@ Cada escena responde a una sección literal del anuncio:
 | 3 | Las 11 competencias que piden autoevaluar del 1 al 5 |
 | 4 | La lista «No apliques si…» |
 | 5 | El campo del vídeo: «por qué crees que eres la persona ideal» |
-
-La escena 3 declara un **2 honesto** en Retell AI y HighLevel. Es deliberado:
-la oferta pide «conocimiento profundo de Retell.ai» y uno de sus tres valores
-declarados es *Courageous Honesty*. Inflarlo a un 5 se cae en la primera
-llamada técnica; declararlo a 2 y aun así presentarse es coherente con lo que
-ellos mismos dicen valorar.

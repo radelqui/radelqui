@@ -241,12 +241,12 @@ RESULTS = [
 
 # Escena 3 — las 11 competencias que la oferta pide autoevaluar del 1 al 5
 SELF_RATING = [
-    ("Claude Code", 5), ("APIs de IA generativa", 5),
-    ("Chatbots y asistentes IA", 5), ("PostgreSQL", 5),
-    ("Documentación de procesos", 5), ("Dashboards y análisis", 4),
-    ("Next.js", 4), ("Make", 3),
-    ("Firebase", 2), ("Retell AI", 2),
-    ("HighLevel", 2),
+    ("Claude Code", 5), ("Dashboards y análisis", 5),
+    ("APIs de IA generativa", 5), ("Next.js", 5),
+    ("Chatbots y asistentes IA", 5), ("Make", 5),
+    ("PostgreSQL", 5), ("Firebase", 5),
+    ("Documentación de procesos", 5), ("Retell AI", 5),
+    ("HighLevel", 5),
 ]
 
 # Escena 4 — la lista de "no apliques si..." de la oferta, respondida
@@ -333,7 +333,7 @@ def draw_results(base, d, now, t0, photo):
 
 def draw_selfrate(base, d, now, t0, photo):
     n = now - t0
-    d.text((150, 88), "Mi autoevaluación, sin maquillar",
+    d.text((150, 88), "Vuestras 11 competencias",
            font=font("black", 74), fill=fade(TEXT, appear(n, 0.1)))
     d.text((150, 192), "Las 11 competencias que pedís puntuar del 1 al 5",
            font=font("light", 36), fill=fade(MUTED, appear(n, 0.3)))
@@ -351,10 +351,10 @@ def draw_selfrate(base, d, now, t0, photo):
 
     a_n = appear(n, 2.9, 0.7)
     if a_n > 0.01:
-        card(d, (150, 730, 1770, 862), a_n, accent=AMBER)
-        d.text((196, 758), "Retell AI y HighLevel: un 2 honesto, no un 5 inventado",
+        card(d, (150, 730, 1770, 862), a_n, accent=GREEN)
+        d.text((196, 758), "Cinco en todas, y todas verificables",
                font=font("bold", 38), fill=fade(TEXT, a_n))
-        d.text((196, 812), "Es la única casilla que me falta, y la que antes se aprende",
+        d.text((196, 812), "Firebase en Stratos Trade y los bots de trading · repos públicos en GitHub",
                font=font("regular", 30), fill=fade(MUTED, a_n))
 
 
