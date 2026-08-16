@@ -9,7 +9,7 @@ persona ideal para este puesto»*.
 | Archivo | Qué es |
 |---|---|
 | **`carlos-delatorre-omnidental.gif`** | **El vídeo, en un formato que el campo sí acepta.** 960x540, 12 fps, 6,7 MB |
-| **`caratula-video-omnidental.pdf`** | **El vídeo se reproduce con un clic dentro del PDF** (4,70 MB) |
+| **`caratula-video-omnidental.pdf`** | **Póster, enlace y QR clicables al vídeo**, con el MP4 dentro (4,63 MB) |
 
 ### Los originales
 

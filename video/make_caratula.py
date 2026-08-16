@@ -6,16 +6,21 @@ El campo es obligatorio y sólo acepta PDF, DOC/DOCX, XLS/CSV, JPG/JPEG, PNG y
 GIF. Que no admita MP4 no impide entregar el MP4: el vídeo viaja dentro de este
 PDF y se reproduce con un clic sobre el póster de la página.
 
-Tres capas, de más cómoda a más resistente:
+Este PDF se va a abrir en Gmail, en Drive, en el visor de Chrome o dentro del
+propio ATS — casi nunca en Adobe Acrobat. Eso decide el diseño:
 
-  1. Anotación RichMedia sobre el póster — un clic y el vídeo se reproduce
-     dentro de la página. La reproducen Acrobat y Reader.
-  2. Fichero embebido (/EmbeddedFiles) — el MP4 íntegro, extraíble desde el
-     panel de adjuntos de cualquier visor que los soporte, o con pdfdetach.
-  3. Enlace y QR — para quien abra el PDF en un visor que ignore las dos
-     anteriores, como el de Chrome.
+  - El póster entero es una anotación /Link a la URL del vídeo. Es lo único
+    interactivo que respetan TODOS los visores, el de Drive incluido. Un clic
+    y el vídeo se abre en el navegador, con sonido.
+  - El MP4 va además embebido (/EmbeddedFiles) para quien se descargue el PDF
+    y lo abra en Acrobat, Vista Previa o Firefox: ahí aparece en el panel de
+    adjuntos. Donde no se soporta es invisible y no estorba.
+  - El QR repite la misma URL, para saltar al móvil.
 
-La 1 y la 2 comparten el mismo fichero embebido: no se duplica el vídeo.
+Se descartó la anotación /RichMedia, que reproduce el vídeo dentro de la
+página: sólo la soporta Acrobat, y encima entra en conflicto con el /Link si
+comparten rectángulo. Un enlace que funciona en todas partes vale más que una
+reproducción incrustada que casi nadie va a ver.
 
 Requisitos:
     pip install pillow qrcode pikepdf
@@ -26,7 +31,6 @@ Uso:
 
 import argparse
 import hashlib
-import io
 import json
 import os
 import subprocess
@@ -176,7 +180,7 @@ def build_poster(video, timeline):
     d.polygon([(cx - 24, cy - 38), (cx - 24, cy + 38), (cx + 40, cy)],
               fill=(255, 255, 255))
 
-    label = "Un clic para reproducir"
+    label = "Un clic para ver el vídeo"
     f = font("bold", 30)
     tw = text_w(d, label, f)
     bx, by = cx - tw // 2 - 26, cy + r + 34
@@ -204,17 +208,16 @@ def render(url, video, photo_path, out_pdf, timeline):
            font=font("regular", 24), fill=DIM)
 
     # --- póster del vídeo (encima irá la anotación RichMedia)
-    poster = build_poster(video, timeline)
-    page.paste(poster, (POSTER[0], POSTER[1]))
+    page.paste(build_poster(video, timeline), (POSTER[0], POSTER[1]))
     d.rectangle(POSTER, outline=BORDER, width=2)
 
     # --- pie del póster: qué hacer si el visor no lo reproduce
     y = 982
     d.text((72, y), f"Vídeo de presentación · {stamp(timeline[-1])} · con voz",
            font=font("bold", 32), fill=TEXT)
-    d.text((72, y + 50), "El vídeo va dentro de este PDF. Si tu visor no lo reproduce al",
+    d.text((72, y + 50), "Pulsa el vídeo de arriba, escanea el QR, o abre este enlace.",
            font=font("regular", 24), fill=MUTED)
-    d.text((72, y + 84), "pulsarlo, está también como adjunto —el icono del clip— o en línea:",
+    d.text((72, y + 84), "El MP4 va además adjunto dentro de este PDF, en el icono del clip.",
            font=font("regular", 24), fill=MUTED)
 
     f_url = font("bold", 27)
@@ -252,100 +255,37 @@ def render(url, video, photo_path, out_pdf, timeline):
            font=font("regular", 23), fill=DIM)
 
     page.save(out_pdf, "PDF", resolution=DPI)
-    return poster, url_box
+    # Zonas clicables: el póster, el enlace escrito y el QR
+    return [POSTER, url_box,
+            (qx - 14, qy - 14, qx + qr_size + 14, qy + qr_size + 14)]
 
 
-def add_video(pdf_path, video_path, poster, url, url_box):
-    """Mete el MP4 en el PDF y lo cablea a un clic sobre el póster.
+def add_video(pdf_path, video_path, url, boxes):
+    """Deja el MP4 dentro del PDF y hace clicable el póster.
 
-    El mismo fichero embebido sirve para las dos vías: la anotación RichMedia
-    que lo reproduce en la página y el panel de adjuntos que lo extrae.
+    El póster es un /Link a la URL, no una anotación /RichMedia: el enlace lo
+    respetan todos los visores y RichMedia sólo Acrobat. El fichero embebido
+    va aparte, para quien descargue el PDF y lo abra en un visor de escritorio.
     """
     data = open(video_path, "rb").read()
     name = os.path.basename(video_path)
 
     with pikepdf.open(pdf_path, allow_overwriting_input=True) as pdf:
-        page = pdf.pages[0]
+        pdf.attachments[name] = pikepdf.AttachedFileSpec(
+            pdf, data, mime_type="video/mp4",
+            description="Vídeo de presentación · 1 minuto")
 
-        # El vídeo, una sola vez en el documento
-        spec = pikepdf.AttachedFileSpec(pdf, data, mime_type="video/mp4",
-                                        description="Vídeo de presentación")
-        pdf.attachments[name] = spec
-        filespec = pdf.Root.Names.EmbeddedFiles.Names[1]
-
-        # Apariencia del área: el propio póster, para que se vea antes de
-        # reproducir y no quede un hueco en blanco.
-        buf = io.BytesIO()
-        poster.save(buf, "JPEG", quality=88)
-        image = pikepdf.Stream(pdf, buf.getvalue())
-        image.Type = pikepdf.Name.XObject
-        image.Subtype = pikepdf.Name.Image
-        image.Width, image.Height = poster.size
-        image.ColorSpace = pikepdf.Name.DeviceRGB
-        image.BitsPerComponent = 8
-        image.Filter = pikepdf.Name.DCTDecode
-
-        rect = to_pdf_rect(POSTER)
-        w, h = rect[2] - rect[0], rect[3] - rect[1]
-        appearance = pikepdf.Stream(pdf, f"q {w} 0 0 {h} 0 0 cm /Im0 Do Q".encode())
-        appearance.Type = pikepdf.Name.XObject
-        appearance.Subtype = pikepdf.Name.Form
-        appearance.BBox = pikepdf.Array([0, 0, w, h])
-        appearance.Resources = pikepdf.Dictionary(
-            XObject=pikepdf.Dictionary(Im0=image))
-
-        instance = pdf.make_indirect(pikepdf.Dictionary(
-            Type=pikepdf.Name.RichMediaInstance,
-            Subtype=pikepdf.Name.Video,
-            Asset=filespec,
-            Params=pikepdf.Dictionary(Binding=pikepdf.Name.Background),
-        ))
-        configuration = pdf.make_indirect(pikepdf.Dictionary(
-            Type=pikepdf.Name.RichMediaConfiguration,
-            Subtype=pikepdf.Name.Video,
-            Instances=pikepdf.Array([instance]),
-        ))
-
-        annot = pdf.make_indirect(pikepdf.Dictionary(
-            Type=pikepdf.Name.Annot,
-            Subtype=pikepdf.Name.RichMedia,
-            Rect=pikepdf.Array(rect),
-            F=4,                                  # imprimible
-            P=page.obj,
-            AP=pikepdf.Dictionary(N=appearance),
-            RichMediaContent=pikepdf.Dictionary(
-                Type=pikepdf.Name.RichMediaContent,
-                Assets=pikepdf.Dictionary(
-                    Names=pikepdf.Array([pikepdf.String(name), filespec])),
-                Configurations=pikepdf.Array([configuration]),
-            ),
-            RichMediaSettings=pikepdf.Dictionary(
-                Type=pikepdf.Name.RichMediaSettings,
-                # /XA: se activa con un clic, no al abrir el documento
-                Activation=pikepdf.Dictionary(
-                    Type=pikepdf.Name.RichMediaActivation,
-                    Condition=pikepdf.Name.XA,
-                    Presentation=pikepdf.Dictionary(
-                        Type=pikepdf.Name.RichMediaPresentation,
-                        Style=pikepdf.Name.Embedded,
-                        Transparent=True),
-                ),
-                Deactivation=pikepdf.Dictionary(
-                    Type=pikepdf.Name.RichMediaDeactivation,
-                    Condition=pikepdf.Name.XD),
-            ),
-        ))
-
-        # El enlace de abajo, clicable para los visores que ignoren RichMedia
-        link = pdf.make_indirect(pikepdf.Dictionary(
-            Type=pikepdf.Name.Annot,
-            Subtype=pikepdf.Name.Link,
-            Rect=pikepdf.Array(to_pdf_rect(url_box)),
-            Border=pikepdf.Array([0, 0, 0]),
-            A=pikepdf.Dictionary(S=pikepdf.Name.URI, URI=pikepdf.String(url)),
-        ))
-
-        page.Annots = pikepdf.Array([annot, link])
+        pdf.pages[0].Annots = pikepdf.Array([
+            pdf.make_indirect(pikepdf.Dictionary(
+                Type=pikepdf.Name.Annot,
+                Subtype=pikepdf.Name.Link,
+                Rect=pikepdf.Array(to_pdf_rect(box)),
+                Border=pikepdf.Array([0, 0, 0]),      # sin marco azul
+                A=pikepdf.Dictionary(S=pikepdf.Name.URI,
+                                     URI=pikepdf.String(url)),
+            ))
+            for box in boxes
+        ])
         pdf.save(pdf_path)
 
     # El PDF sólo vale si el vídeo se recupera intacto
@@ -371,8 +311,8 @@ def main():
             sys.exit(f"No encuentro: {path}")
 
     timeline = load_timeline(args.timeline)
-    poster, url_box = render(args.url, args.video, args.photo, args.out, timeline)
-    size = add_video(args.out, args.video, poster, args.url, url_box)
+    boxes = render(args.url, args.video, args.photo, args.out, timeline)
+    size = add_video(args.out, args.video, args.url, boxes)
 
     print(f"Vídeo embebido y verificado: {size / 1e6:.2f} MB")
     print(f"Listo: {args.out}  ({os.path.getsize(args.out) / 1e6:.2f} MB)")
