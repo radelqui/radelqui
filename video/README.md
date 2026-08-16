@@ -4,14 +4,22 @@ Vídeo de 1 minuto **con locución en español** para el campo del formulario qu
 pide *«un vídeo de 1 minuto presentándote y contándonos por qué crees que eres
 la persona ideal para este puesto»*.
 
+### Lo que se sube al formulario
+
 | Archivo | Qué es |
 |---|---|
-| **`carlos-delatorre-omnidental-60s-con-voz.mp4`** | **El vídeo final, con voz.** 1920x1080, 30 fps, 60 s exactos |
-| `carlos-delatorre-omnidental-60s.mp4` | La misma pieza sin audio, por si prefieres grabar tu propia voz |
+| **`carlos-delatorre-omnidental-60s.gif`** | **El vídeo, en un formato que el campo sí acepta.** 960x540, 12 fps, 5,9 MB |
+| **`caratula-video-omnidental.pdf`** | Una página con enlace + QR al HD con voz, fotogramas y escaleta |
+
+### Los originales
+
+| Archivo | Qué es |
+|---|---|
+| `carlos-delatorre-omnidental-60s-con-voz.mp4` | El máster: 1920x1080, 30 fps, 60 s, con locución |
+| `carlos-delatorre-omnidental-60s.mp4` | La misma pieza sin audio (es la fuente del GIF) |
 | `locucion.wav` | Solo la pista de voz, alineada al minuto |
 | `guion-voz-en-off.md` | El guion, escena a escena, con sus tiempos |
-| `make_video.py` | Generador del vídeo |
-| `make_voice.py` | Generador de la locución + mezcla con el vídeo |
+| `make_video.py` · `make_voice.py` · `make_gif.py` · `make_caratula.py` | Los cuatro generadores |
 
 ## La idea
 
@@ -37,6 +45,12 @@ python3 make_video.py --photo /ruta/a/tu/foto.jpg
 
 # 2. La locución, ajustada escena a escena, y la mezcla final
 python3 make_voice.py --model /ruta/es_ES-davefx-medium.onnx
+
+# 3. El GIF que se sube al formulario
+python3 make_gif.py
+
+# 4. La carátula PDF (pip install qrcode)
+python3 make_caratula.py --url https://youtu.be/XXXX --photo /ruta/foto.jpg
 ```
 
 La voz es el modelo Piper `es_ES-davefx-medium`, que se descarga de
@@ -52,13 +66,33 @@ Para cambiar el contenido, edita las listas del bloque `# guion` en
 `make_video.py` (`RESULTS`, `SELF_RATING`, `FILTERS`, `REASONS`) y los textos de
 `NARRATION` en `make_voice.py`. El resto de la maquetación se recoloca sola.
 
+## El problema del campo de subida, y cómo se resuelve
+
+El campo del vídeo es **obligatorio** y sólo acepta PDF, DOC/DOCX, XLS/CSV,
+JPG/JPEG, PNG y GIF. En el HTML de la página, ese campo y el de «Subir
+Currículum» llevan **exactamente la misma cadena de formatos**: es el
+componente de subida por defecto de su generador de formularios, pegado dos
+veces sin ajustarle los tipos al del vídeo.
+
+La salida no es pedir una excepción, es que **el campo acepta GIF y un GIF es
+vídeo**. Y admite hasta 10 archivos, así que van los dos:
+
+1. `carlos-delatorre-omnidental-60s.gif` — la pieza entera, que se reproduce
+   sin salir del formulario y sin depender de ningún enlace externo.
+2. `caratula-video-omnidental.pdf` — enlace y QR a la versión en HD con
+   locución, más los fotogramas y la escaleta.
+
+Lo único que pierde el GIF es el audio, no el mensaje: la pieza se diseñó para
+leerse en silencio, con todo el contenido en pantalla.
+
 ## Antes de enviarlo
 
-1. **El formulario no acepta MP4.** Los formatos admitidos en ese campo son PDF,
-   DOC/DOCX, XLS/CSV, JPG/JPEG, PNG y GIF. Sube el vídeo a YouTube como *no
-   listado*, a Drive o a Loom, y pega el enlace donde el formulario lo permita.
+1. **Sube el MP4 con voz a algún sitio** (YouTube no listado, Drive, Loom) y
+   regenera la carátula con esa URL:
+   `python3 make_caratula.py --url https://... --photo /ruta/foto.jpg`.
+   Ahora mismo apunta al portfolio, que funciona, pero no es el vídeo.
 2. **Escúchalo entero una vez.** La voz es sintética (Piper). Suena natural,
-   pero si prefieres que sea la tuya, usa `carlos-delatorre-omnidental-60s.mp4`
-   —el mismo vídeo sin audio— y el guion cronometrado de `guion-voz-en-off.md`.
+   pero si prefieres que sea la tuya, usa la versión sin audio y el guion
+   cronometrado de `guion-voz-en-off.md`.
 3. **Revisa que las cifras siguen vigentes** (clientes, tareas/mes, contenedores)
    antes de enviarlo: van en pantalla y te las pueden preguntar en la entrevista.
