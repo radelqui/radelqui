@@ -6,23 +6,34 @@ El formulario de Omni Dental pide un vídeo de 1 minuto pero su campo de subida
 sólo acepta PDF, DOC/DOCX, XLS/CSV, JPG/JPEG, PNG y GIF — el mismo componente
 por defecto que usan para el currículum, sin ajustar.
 
-El vídeo en sí se entrega como GIF (ver make_gif.py), que es un formato que el
-campo sí acepta. Esta carátula lo acompaña: da acceso a la versión en HD con
-locución mediante enlace y QR, y resume la escaleta para que se entienda la
-pieza aunque nadie pulse nada.
+Que no admita MP4 no impide entregar el MP4: un PDF puede llevar ficheros
+embebidos (/EmbeddedFiles, PDF 1.4 en adelante), así que el vídeo real viaja
+dentro de esta carátula. Se ha comprobado que sale byte a byte con una
+herramienta ajena a la que lo mete (pdfdetach, de poppler).
+
+Con eso, la candidatura sube dos archivos y cubre los tres escenarios:
+  - el GIF (make_gif.py) se ve solo, sin audio y sin pulsar nada;
+  - el MP4 adjunto en este PDF es la pieza íntegra, con voz;
+  - el enlace y el QR cubren a quien no abra el panel de adjuntos.
+
+Requisitos:
+    pip install pillow qrcode pikepdf
 
 Uso:
-    python3 video/make_caratula.py --url https://youtu.be/XXXXXXXX
+    python3 video/make_caratula.py --url https://youtu.be/XXXX --photo foto.jpg
 """
 
 import argparse
+import hashlib
+import json
 import os
 import subprocess
 import sys
 import tempfile
 
+import pikepdf
 import qrcode
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageDraw, ImageFont
 
 # A4 vertical a 150 ppp
 W, H = 1240, 1754
@@ -48,22 +59,24 @@ _FONTS = {
 }
 _cache = {}
 
-# Momentos del vídeo que mejor resumen cada escena
-FRAME_TIMES = [7.0, 21.0, 33.0, 58.0]
-FRAME_CAPTIONS = [
-    "Presentación",
-    "Vuestros resultados esperados",
-    "Las 11 competencias",
-    "Por qué soy la persona ideal",
+# Qué dice cada escena. Los tiempos NO se escriben aquí: salen de
+# timeline.json, que genera make_voice_real.py a partir de la grabación. Si se
+# escribieran a mano volverían a quedarse viejos en cuanto cambie la locución.
+SCENE_TEXT = [
+    ("Presentación", "Presentación y a qué oferta me presento"),
+    ("Vuestros resultados esperados", "Vuestra sección «Resultados esperados», respondida"),
+    ("Las 11 competencias", "Las 11 competencias que pedís puntuar del 1 al 5"),
+    ("Vuestra lista de descartes", "Vuestra lista «No apliques si…», punto por punto"),
+    ("Por qué soy la persona ideal", "Por qué soy la persona ideal · datos de contacto"),
 ]
 
-SCENES = [
-    ("0:00", "Presentación y a qué oferta me presento"),
-    ("0:08", "Vuestra sección «Resultados esperados», respondida"),
-    ("0:23", "Las 11 competencias que pedís puntuar del 1 al 5"),
-    ("0:35", "Vuestra lista «No apliques si…», punto por punto"),
-    ("0:46", "Por qué soy la persona ideal · datos de contacto"),
-]
+# Reparto por defecto, por si no hay timeline.json
+DEFAULT_TIMELINE = [0.0, 11.28, 30.35, 44.17, 55.91, 71.87]
+
+# Las miniaturas se toman pasado el 70% de cada escena, cuando ya han entrado
+# todos sus elementos. Se descarta la cuarta (descartes) para que quepan cuatro.
+THUMB_SCENES = [0, 1, 2, 4]
+THUMB_AT = 0.70
 
 
 def font(weight, size):
@@ -125,7 +138,23 @@ def round_photo(path, size):
     return canvas.resize((size + (pad * 2) // 3,) * 2, Image.LANCZOS)
 
 
-def render(url, video, photo_path, out_pdf):
+def load_timeline(path):
+    """Fronteras de escena en segundos. Las escribe make_voice_real.py."""
+    if path and os.path.exists(path):
+        with open(path, encoding="utf-8") as fh:
+            bounds = json.load(fh)["bounds"]
+        if len(bounds) == len(SCENE_TEXT) + 1:
+            return bounds
+        print(f"Aviso: {path} tiene {len(bounds)} tiempos, se esperaban "
+              f"{len(SCENE_TEXT) + 1}. Uso el reparto por defecto.")
+    return DEFAULT_TIMELINE
+
+
+def stamp(seconds):
+    return f"{int(seconds) // 60}:{int(seconds) % 60:02d}"
+
+
+def render(url, video, photo_path, out_pdf, timeline):
     page = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(page)
 
@@ -148,21 +177,25 @@ def render(url, video, photo_path, out_pdf):
     rrect(d, (72, y, W - 72, y + 396), 22, fill=BLUE_SOFT, outline=BORDER, width=2)
     d.text((116, y + 40), "VÍDEO DE PRESENTACIÓN · 1 MINUTO",
            font=font("bold", 24), fill=BLUE_DEEP)
-    d.text((116, y + 88), "Ver el vídeo aquí:", font=font("regular", 28), fill=MUTED)
+    d.text((116, y + 84), "El vídeo va dentro de este PDF",
+           font=font("black", 37), fill=TEXT)
+    d.text((116, y + 140), "Ábrelo desde el panel de adjuntos: el icono del clip",
+           font=font("regular", 25), fill=MUTED)
+    d.text((116, y + 176), "en Acrobat, Vista Previa o Firefox.",
+           font=font("regular", 25), fill=MUTED)
 
-    f_url = font("bold", 34)
-    while text_w(d, url, f_url) > 620 and f_url.size > 18:
+    d.line([(116, y + 228), (116 + 620, y + 228)], fill=BORDER, width=2)
+    d.text((116, y + 248), "O verlo en línea:", font=font("regular", 24), fill=MUTED)
+
+    f_url = font("bold", 30)
+    while text_w(d, url, f_url) > 620 and f_url.size > 17:
         f_url = font("bold", f_url.size - 2)
-    d.text((116, y + 134), url, font=f_url, fill=BLUE_DEEP)
-    d.line([(116, y + 134 + f_url.size + 8),
-            (116 + text_w(d, url, f_url), y + 134 + f_url.size + 8)],
+    d.text((116, y + 286), url, font=f_url, fill=BLUE_DEEP)
+    d.line([(116, y + 286 + f_url.size + 7),
+            (116 + text_w(d, url, f_url), y + 286 + f_url.size + 7)],
            fill=BLUE, width=2)
 
-    d.text((116, y + 214), "El GIF que adjunto es este mismo vídeo: se reproduce",
-           font=font("regular", 25), fill=MUTED)
-    d.text((116, y + 250), "sin salir del formulario. El enlace lleva al HD con voz.",
-           font=font("regular", 25), fill=MUTED)
-    d.text((116, y + 306), "1920x1080 · 60 s exactos · con locución",
+    d.text((116, y + 340), f"1920x1080 · {stamp(timeline[-1])} · con voz",
            font=font("medium", 25), fill=GREEN)
 
     qr = build_qr(url, 268)
@@ -178,14 +211,16 @@ def render(url, video, photo_path, out_pdf):
     y = 800
     d.text((72, y), "Qué vas a ver", font=font("black", 38), fill=TEXT)
     y += 68
-    frames = grab_frames(video, FRAME_TIMES, height=196)
+    times = [timeline[i] + (timeline[i + 1] - timeline[i]) * THUMB_AT
+             for i in THUMB_SCENES]
+    frames = grab_frames(video, times, height=196)
     fw = (W - 144 - 3 * 20) // 4
     for i, im in enumerate(frames):
         im = im.resize((fw, int(im.height * fw / im.width)), Image.LANCZOS)
         x = 72 + i * (fw + 20)
         page.paste(im, (x, y))
         d.rectangle((x, y, x + fw, y + im.height), outline=BORDER, width=2)
-        d.text((x, y + im.height + 12), FRAME_CAPTIONS[i],
+        d.text((x, y + im.height + 12), SCENE_TEXT[THUMB_SCENES[i]][0],
                font=font("regular", 19), fill=MUTED)
 
     # Escaleta
@@ -194,10 +229,10 @@ def render(url, video, photo_path, out_pdf):
     d.text((72, y + 54), "Cada escena responde a una sección literal de vuestra oferta.",
            font=font("regular", 26), fill=MUTED)
     y += 110
-    for i, (stamp, what) in enumerate(SCENES):
+    for i, (_, what) in enumerate(SCENE_TEXT):
         top = y + i * 62
         rrect(d, (72, top, W - 72, top + 52), 12, fill=SOFT)
-        d.text((100, top + 12), stamp, font=font("bold", 27), fill=BLUE)
+        d.text((100, top + 12), stamp(timeline[i]), font=font("bold", 27), fill=BLUE)
         d.text((196, top + 12), what, font=font("regular", 27), fill=TEXT)
 
     # Pie
@@ -211,6 +246,26 @@ def render(url, video, photo_path, out_pdf):
     return out_pdf
 
 
+def embed_video(pdf_path, video_path):
+    """Mete el MP4 dentro del PDF como fichero embebido y comprueba que sale
+    idéntico: si no coincide el hash, el PDF no vale para entregar el vídeo."""
+    data = open(video_path, "rb").read()
+    name = os.path.basename(video_path)
+
+    with pikepdf.open(pdf_path, allow_overwriting_input=True) as pdf:
+        pdf.attachments[name] = pikepdf.AttachedFileSpec(
+            pdf, data, mime_type="video/mp4",
+            description="Vídeo de presentación · 1 minuto",
+        )
+        pdf.save(pdf_path)
+
+    with pikepdf.open(pdf_path) as check:
+        got = check.attachments[name].get_file().read_bytes()
+    if hashlib.sha256(got).digest() != hashlib.sha256(data).digest():
+        raise RuntimeError("el vídeo embebido no se recupera intacto")
+    return len(data)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--url", required=True,
@@ -218,13 +273,17 @@ def main():
     ap.add_argument("--video", default="video/carlos-delatorre-omnidental-60s-con-voz.mp4")
     ap.add_argument("--photo", required=True)
     ap.add_argument("--out", default="video/caratula-video-omnidental.pdf")
+    ap.add_argument("--timeline", default="video/timeline.json")
     args = ap.parse_args()
 
     for path in (args.video, args.photo):
         if not os.path.exists(path):
             sys.exit(f"No encuentro: {path}")
 
-    render(args.url, args.video, args.photo, args.out)
+    timeline = load_timeline(args.timeline)
+    render(args.url, args.video, args.photo, args.out, timeline)
+    size = embed_video(args.out, args.video)
+    print(f"Vídeo embebido y verificado: {size / 1e6:.2f} MB")
     print(f"Listo: {args.out}  ({os.path.getsize(args.out) / 1e6:.2f} MB)")
 
 

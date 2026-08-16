@@ -22,6 +22,7 @@ Uso:
 """
 
 import argparse
+import json
 import os
 import subprocess
 import sys
@@ -97,6 +98,7 @@ def main():
     ap.add_argument("--photo", required=True)
     ap.add_argument("--video", default="video/carlos-delatorre-omnidental.mp4")
     ap.add_argument("--wav", default="video/locucion-carlos.wav")
+    ap.add_argument("--timeline", default="video/timeline.json")
     args = ap.parse_args()
 
     for path in (args.audio, args.photo):
@@ -114,6 +116,12 @@ def main():
         print(f"  {name:13s} {timeline[i]:6.2f} -> {timeline[i + 1]:6.2f}s "
               f"({timeline[i + 1] - timeline[i]:5.2f}s)")
     print(f"  TOTAL {timeline[-1]:.2f}s")
+
+    # Fuente única de los tiempos: la carátula los lee de aquí en vez de
+    # llevarlos escritos, que es como se le quedaron viejos una vez.
+    with open(args.timeline, "w", encoding="utf-8") as fh:
+        json.dump({"bounds": [round(t, 3) for t in timeline]}, fh, indent=2)
+    print(f"  -> {args.timeline}")
 
     # Voz limpia: fuera el retumbe por debajo de 80 Hz, reducción suave de
     # ruido y nivel de locución con techo a -1.5 dBTP.

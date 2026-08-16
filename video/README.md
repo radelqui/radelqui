@@ -9,7 +9,7 @@ persona ideal para este puesto»*.
 | Archivo | Qué es |
 |---|---|
 | **`carlos-delatorre-omnidental.gif`** | **El vídeo, en un formato que el campo sí acepta.** 960x540, 12 fps, 6,7 MB |
-| **`caratula-video-omnidental.pdf`** | Una página con enlace + QR al HD con voz, fotogramas y escaleta |
+| **`caratula-video-omnidental.pdf`** | **Lleva el MP4 real embebido dentro** (4,65 MB), más enlace, QR y escaleta |
 
 ### Los originales
 
@@ -20,6 +20,7 @@ persona ideal para este puesto»*.
 | `locucion-carlos.wav` | Solo la voz, ya limpia y recortada |
 | `texto-para-grabar.txt` | El texto en cinco bloques, para leer al grabar |
 | `guion-voz-en-off.md` | El guion con sus tiempos y por qué dice lo que dice |
+| `timeline.json` | Las fronteras de escena — fuente única de los tiempos |
 | `make_video.py` · `make_voice_real.py` · `make_gif.py` · `make_caratula.py` | Los generadores |
 | `make_voice.py` | Locución sintética con Piper — alternativa descartada |
 
@@ -54,11 +55,15 @@ python3 make_voice_real.py --audio grabacion.m4a --photo /ruta/foto.jpg
 python3 make_gif.py --video carlos-delatorre-omnidental.mp4 \
                     --out carlos-delatorre-omnidental.gif
 
-# 3. La carátula PDF
+# 3. La carátula PDF, con el MP4 embebido dentro
 python3 make_caratula.py --url https://youtu.be/XXXX \
                          --video carlos-delatorre-omnidental-con-voz.mp4 \
                          --photo /ruta/foto.jpg
 ```
+
+Los tiempos de la escaleta del PDF salen de `timeline.json`, que escribe
+`make_voice_real.py`. No se escriben a mano: cuando lo estaban, se quedaron
+con el reparto de 60 s después de remontar el vídeo a 71,9 s.
 
 `make_voice_real.py` transcribe la grabación con `faster-whisper` para sacar
 las marcas de tiempo, localiza los cuatro huecos entre bloques y pasa esas
