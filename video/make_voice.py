@@ -17,6 +17,7 @@ Uso:
 
 import argparse
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -54,15 +55,36 @@ NARRATION = [
      "sin prueba, no está hecho. Hablemos."),
 ]
 
+# Un sintetizador español lee "Claude Code" como «CLAU-de CO-de» y "Firebase"
+# como «fi-re-BA-se». Estas reescrituras se aplican solo al texto que entra al
+# sintetizador: el guion legible (guion-voz-en-off.md) mantiene la grafía real.
+# Se sustituye por palabras completas para no tocar trozos de otras palabras.
+PRONUNCIATION = {
+    "Claude Code": "Clod Coud",
+    "Anthropic": "Antrópic",
+    "PostgreSQL": "Postgres",
+    "Firebase": "Fáyerbeis",
+    "chatbots": "chátbots",
+    "APIs": "ápis",
+}
+
 LEAD_IN = 0.35       # silencio al empezar cada escena, para que no atropelle
 TAIL = 0.30          # margen antes de que entre la escena siguiente
+
+
+def phonetic(text):
+    """Aplica las reescrituras de pronunciación, de la clave más larga a la
+    más corta para que 'Claude Code' gane a cualquier coincidencia parcial."""
+    for term in sorted(PRONUNCIATION, key=len, reverse=True):
+        text = re.sub(rf"\b{re.escape(term)}\b", PRONUNCIATION[term], text)
+    return text
 
 
 def synth(text, model, out_path, length_scale):
     """Sintetiza `text` a WAV. Devuelve su duración en segundos."""
     cmd = [sys.executable, "-m", "piper", "-m", model, "-f", out_path,
            "--length-scale", f"{length_scale:.3f}"]
-    subprocess.run(cmd, input=text.encode("utf-8"), check=True,
+    subprocess.run(cmd, input=phonetic(text).encode("utf-8"), check=True,
                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     with wave.open(out_path) as w:
         return w.getnframes() / w.getframerate()
