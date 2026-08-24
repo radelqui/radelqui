@@ -1,0 +1,95 @@
+TEXTO PARA GRABAR — VIDEO 1 MINUTO — OMNI DENTAL
+Carlos De La Torre · 152 palabras · ~60 segundos
+
+Graba CINCO TOMAS, una por bloque. No intentes clavar el minuto de una vez.
+Cada bloque tiene margen de sobra: no corras.
+
+
+===============================================================
+BLOQUE 1        0:00 - 0:08,5        (23 palabras)
+===============================================================
+
+Hola, soy Carlos De La Torre, arquitecto de inteligencia
+artificial. He leído vuestra oferta entera, y voy a responderla
+punto por punto.
+
+
+===============================================================
+BLOQUE 2        0:08,5 - 0:23,5      (44 palabras)
+===============================================================
+
+Empiezo por los resultados que esperáis.
+
+Voz en tiempo real, ya en producción.
+
+Fuera las hojas de cálculo: un proceso de cuarenta y cinco
+minutos, bajado a tres.
+
+Claude Code a diario, partner de Anthropic.
+
+Y treinta y cuatro mil tareas automatizadas al mes.
+
+
+===============================================================
+BLOQUE 3        0:23,5 - 0:35,5      (28 palabras)
+===============================================================
+
+Vuestras once competencias, del uno al cinco: cinco en todas.
+
+Claude Code, APIs de IA, chatbots, PostgreSQL, Firebase.
+
+No es una promesa: es lo que hago cada día.
+
+   >> Este es el bloque que más pesa. Dilo tranquilo,
+      sin sonar defensivo.
+
+
+===============================================================
+BLOQUE 4        0:35,5 - 0:46,5      (32 palabras)
+===============================================================
+
+Vuestra lista de descartes también la leí, y ninguno me aplica.
+
+Nueve agentes que diseñé sin que me los pidieran.
+
+Treinta y un años en terminal, y dos servidores levantados
+desde cero.
+
+
+===============================================================
+BLOQUE 5        0:46,5 - 1:00        (38 palabras)
+===============================================================
+
+¿Por qué soy la persona ideal?
+
+Porque ya he construido lo que pedís, y está funcionando en
+producción, no en una demo.
+
+Y porque trabajo con una regla que aprendí en banca regulada:
+sin prueba, no está hecho.
+
+Hablemos.
+
+   >> Deja que "Hablemos" caiga solo y calla.
+      Los datos de contacto se leen en pantalla.
+
+
+===============================================================
+COMO GRABARLO
+===============================================================
+
+- Pon a reproducir carlos-delatorre-omnidental-60s.mp4 (el que
+  va sin audio) mientras lees: te marca el ritmo y ves que hay
+  en pantalla en cada momento.
+
+- El movil vale. Mejor con los auriculares con microfono, cerca
+  de la boca. Evita manos libres y habitaciones con eco.
+
+- Si te trabas, repite el bloque entero. No pasa nada por tener
+  varias tomas: mandame la que mas te guste de cada una.
+
+- Formato: el que saque el movil (m4a, wav, mp3, aac...).
+
+Pasame los cinco audios y yo hago el resto: alineado al segundo
+con su escena, normalizacion a -16 LUFS con techo a -1,5 dBTP,
+muxado con el video, y regenero el GIF y la caratula.
