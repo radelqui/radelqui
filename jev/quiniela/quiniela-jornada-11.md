@@ -256,3 +256,33 @@ Empates esperados en los 10 de Segunda: mercado 2,6 · público 2,3 · nuestra m
 Base: la columna de máxima probabilidad del mercado (21211111111211, que coincide con la columna de Jev). Dobles donde el público más se equivoca y el partido está abierto: Albacete-Eibar (el 1 vale 1,73), Sabadell-Andorra (X 1,36), Córdoba-Tenerife (abierto, 48/27/25), Madrid CFF-Athletic (sin datos de mercado, 47/22/31). Una X por columna de media; la múltiple cubre de 0 a 2 X.
 
 **Lo honesto, al final del camino:** con las probabilidades del mercado ninguna apuesta de 12 € supera claramente la media del juego; la diferencia entre la mejor y la peor múltiple es evitar los favoritos que el público infla. La jornada es mucho más abierta de lo que parecía (seis partidos con el favorito por debajo del 50 %), y eso significa muchos acertantes de poco y pocos de mucho, para todos.
+
+## Jev ante el escenario nuevo (2 de octubre, 06:45 UTC)
+
+Dossier con cuotas, público, Elo, forma, directos y valor por partido, más la múltiple propuesta y sus alternativas. Tres llamadas, 17.000 tokens de entrada, unos 2 céntimos.
+
+- **Signo más probable por partido:** `21211111111211`, idéntico a la base de mercado, 14 de 14.
+- **Lo que Jev "jugaría" en cada partido** no es el signo más probable sino el de más valor: fijo 2 en Almería-Burgos, Las Palmas-Valladolid y Girona-Mallorca, doble X2 en Sporting-Celta B, fija X en Tenerife F-Logroño. Es una línea contraria pura, con probabilidades extremas otra vez (1,00 y 0,00). Su columna de valor completa, jugada 16 veces, no supera a la múltiple (simulado).
+- **Veredicto sobre la propuesta** (nota 1,54 sobre 4, "floja: desaprovecha el valor evidente", confianza 0,42):
+  - Correcto construir la base con el mercado (0,69) y correcto abandonar la múltiple de las X (0,93). No faltan empates: "con estas cuotas no hay dónde ponerlas" (0,86).
+  - El fijo 2 en Cádiz-Leganés y el fijo 1 en R. Sociedad B-Granada son razonables (0,71 y 0,51).
+  - **Error señalado:** dejar fijo el 1 en Las Palmas-Valladolid cuando el 2 vale 1,83 (0,55). Si hay que cambiar un doble, quitar el de Madrid CFF o el de Albacete (0,32 cada uno); si hay que añadir uno, Las Palmas-Valladolid (0,26).
+  - Mejor que la múltiple anterior: 0,84. "Nadie tiene esperanza positiva con estas cuotas": 0,47, lo deja en el aire.
+
+**Comprobación de la sugerencia de Jev** (mover el doble de Madrid CFF-Athletic a Las Palmas-Valladolid, 1 y 2):
+
+| Múltiple | X/col | Retorno relativo | Cobra algo | P(14) | Aciertos medios |
+|---|---|---|---|---|---|
+| Propuesta: dobles 1, 4, 10, 13 | 1,0 | 41 % | 32 % | 0,075 % | 8,65 |
+| **Jev: dobles 1, 4, 8, 10** | 1,0 | **57 %** | 31 % | 0,075 % | 8,61 |
+| Dobles 1, 4, 8, 13 | 0,5 | 54 % | 32 % | 0,065 % | 8,65 |
+
+Jev tenía razón: el doble en Las Palmas-Valladolid, el partido donde el público más se equivoca (58 % al 1 frente a 43 % real), vale más que el de Madrid CFF, donde no hay cuotas.
+
+### Múltiple definitiva (versión Jev), 12 €
+
+| | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | Pleno |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Boleto | **21** | 1 | 2 | **1X** | 1 | 1 | 1 | **12** | 1 | **1X** | 1 | 2 | 1 | 1 | 2-0 |
+
+Retorno relativo 57 % (la media del juego es 55 %; la múltiple de las X daba 27 %). Dobles en los cuatro sitios donde el público paga de más: Eibar, Sabadell, Las Palmas y el partido abierto de Córdoba. Fijo 1 en Madrid CFF-Athletic.
