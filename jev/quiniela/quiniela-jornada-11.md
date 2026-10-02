@@ -187,14 +187,16 @@ Las X de Castellón-Ceuta (valor 2,2) y Barcelona F-Real Madrid F (1,2) son déc
 
 **Retorno estimado por 12 € (corregido por el control):**
 
-| Apuesta | X por columna | P(14) | Retorno | Cobra algo | Premio 14 si sale | Acertantes de 14 además de nosotros |
-|---|---|---|---|---|---|---|
-| B o Jev, 16 veces | 0 | 1 entre 10.000 | 52-59 % | 20 % | ~1.100 € | ~190 |
-| Múltiple actual (3,5,9,13) | 1,5 | 1 entre 200 | ~95 % | 57 % | | |
-| **Múltiple X delante (3,5,9,14)** | 2,0 | 1 entre 200 | **~98 %** | 56 % | de 1.500 a 28.000 € según la columna que entre | de 7 a 140 |
-| A, 16 veces | 3 | 1 entre 1.400 | ~165 % | 26 % | ~28.000 € | ~7 |
+| Apuesta | X por columna | P(14) | Retorno | Cobra algo | Competencia si sale el 14 (acertantes relativos) |
+|---|---|---|---|---|---|
+| B o Jev, 16 veces | 0 | 1 entre 5.000 / 3.500 | 52-59 % | 20 % | 1,8× / 2,8× los de A |
+| Múltiple actual (3,5,9,13) | 1,5 | 1 entre 200 | ~95 % | 57 % | mezcla |
+| **Múltiple X delante (3,5,9,14)** | 2,0 | 1 entre 200 | **~98 %** | 56 % | la columna de 4 X tiene la mitad de competencia que A |
+| A, 16 veces | 3 | 1 entre 2.000 | ~165 % | 26 % | 1× (referencia) |
 
-Lectura: el retorno del juego para un jugador medio es el 55 %. La múltiple con las X infravaloradas roza el 100 %, y la columna A sola, con sus tres X, es la única que se juega donde casi nadie está: si entra, la cobran unas 8 columnas en toda España. B y Jev devuelven menos que la media del juego porque compiten con la mayoría.
+Sobre el premio del 14: el modelo de acertantes supone jugadores independientes y sobreestima mucho los acertantes de las categorías altas (la jornada 9, con 1,94 M de columnas, tuvo 0 acertantes de 14 y solo 2 de 13, que cobraron 51.595 €). En la realidad reciente el 14 lo cobran entre 0 y 5 columnas y paga decenas de miles de euros; lo fiable aquí es el orden: una columna con 3 o 4 X tiene de dos a tres veces menos competencia que una sin empates.
+
+Lectura: el retorno del juego para un jugador medio es el 55 %. La múltiple con las X infravaloradas roza el 100 %, y la columna A sola, con sus tres X, es la que se juega donde menos gente está. B y Jev devuelven menos que la media del juego porque compiten con la mayoría y están en el 8 % de jornadas con una X o ninguna.
 
 ### Múltiple final recomendada, 12 €
 
