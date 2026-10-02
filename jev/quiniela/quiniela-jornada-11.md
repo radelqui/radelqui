@@ -62,9 +62,38 @@ Lectura: la peña con más 15 de España (ocho en 1.133 jornadas) consigue uno c
 
 Lo que sí he cruzado como sustituto: los tres pronosticadores públicos de esta jornada (Bet Brothers, Apuestas-Deportivas y Loterías 1 Fuengirola) y los 294 quinielistas de quiniela15.com. Donde los tres y la comunidad coinciden (partidos 2, 6, 7, 8, 11, 12) las dos columnas van iguales; donde se contradicen entre sí (3, 5, 9, 13) es donde B cubre la otra opción.
 
-## Jev
+## Jev · resultado real (2 de octubre, 05:40 UTC)
 
-Jev no ha opinado todavía: en esta sesión no hay clave de TypeSafe. Está todo preparado en `jev/`:
+Modelo `jev-1.13.0` · 5.309 tokens de entrada, 549 de salida · coste aproximado 0,006 USD.
+
+| # | Partido | P(1) | P(X) | P(2) | **Jev** | A | B |
+|---|---|---|---|---|---|---|---|
+| 1 | Albacete - Eibar | 0,00 | 0,00 | 1,00 | **2** | 2 | 2 |
+| 2 | Almería - Burgos | 1,00 | 0,00 | 0,00 | **1** | 1 | 1 |
+| 3 | Cádiz - Leganés | 0,02 | 0,05 | 0,93 | **2** | X | 2 |
+| 4 | Sabadell - Andorra | 1,00 | 0,00 | 0,00 | **1** | 1 | 1 |
+| 5 | R. Sociedad B - Granada | 0,80 | 0,17 | 0,03 | **1** | X | 1 |
+| 6 | Sporting - Celta B | 1,00 | 0,00 | 0,00 | **1** | 1 | 1 |
+| 7 | Castellón - Ceuta | 1,00 | 0,00 | 0,00 | **1** | 1 | 1 |
+| 8 | Las Palmas - Valladolid | 1,00 | 0,00 | 0,00 | **1** | 1 | 1 |
+| 9 | Girona - Mallorca | 0,91 | 0,09 | 0,00 | **1** | X | 1 |
+| 10 | Córdoba - Tenerife | 0,98 | 0,02 | 0,00 | **1** | 1 | 1 |
+| 11 | Barcelona F - Real Madrid F | 1,00 | 0,00 | 0,00 | **1** | 1 | 1 |
+| 12 | Deportivo F - Atlético F | 0,00 | 0,00 | 1,00 | **2** | 2 | 2 |
+| 13 | Madrid CFF - Athletic F | 0,95 | 0,00 | 0,05 | **1** | 1 | 2 |
+| 14 | Tenerife F - Logroño F | 0,95 | 0,03 | 0,02 | **1** | 1 | 1 |
+
+**Columna de Jev: `21211111111211`** · coincide con A en 11 de 14 y con B en 13 de 14.
+
+Lectura:
+- Jev no discrepa de las dos columnas en ningún partido: donde A y B se separan, elige siempre una de las dos. Eso es lo que se le pedía.
+- En los cuatro partidos igualados se inclina por B (Cádiz-Leganés 2, R. Sociedad B-Granada 1, Girona-Mallorca 1) y por A en Madrid CFF-Athletic (1). Lo único que haría cambiar es el partido 13 de la columna B: con el 1, B pasa a ser exactamente la columna de Jev.
+- Sus probabilidades son extremas (1,00 y 0,00 en nueve partidos). No están calibradas: en Segunda ningún partido es un 100 %. Úsalo como voto, no como probabilidad.
+- Con Jev del lado de B, la recomendación cambia: **sella B tal cual (`21211111111221`) o su variante con el 1 en el partido 13 (`21211111111211`), y A como cobertura de los empates.** Si solo sellas una, la de Jev.
+
+## Cómo se corrió Jev
+
+Jev no había opinado en la primera versión: en esta sesión no hay clave de TypeSafe. Está todo preparado en `jev/`:
 
 ```bash
 cd jev

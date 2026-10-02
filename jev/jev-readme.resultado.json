@@ -1,0 +1,261 @@
+{
+  "modelo": "jev-1.13.0",
+  "cuando": "2026-10-02T05:37:11",
+  "uso": {
+    "input_tokens": 4895,
+    "output_tokens": 943
+  },
+  "nota_global": {
+    "type": "score",
+    "score": 3.2,
+    "confidence": 0.66,
+    "legend": {
+      "0": "Muy flojo: no se entiende qué hace ni qué busca, sin pruebas.",
+      "1": "Flojo: se entiende el rol pero las afirmaciones no se pueden comprobar.",
+      "2": "Aceptable: rol claro y algunas pruebas, con huecos o tono mejorable.",
+      "3": "Bueno: rol claro, pruebas verificables en la mayoría de afirmaciones, pocos huecos.",
+      "4": "Excelente: claro, verificable, completo y con tono adecuado para cualquier reclutador."
+    },
+    "probabilities": {
+      "0": 0.0,
+      "1": 0.0,
+      "2": 0.09,
+      "3": 0.61,
+      "4": 0.3
+    }
+  },
+  "filas": [
+    {
+      "n": 1,
+      "id": "A1_cifras_con_enlace",
+      "tipo": "A",
+      "pregunta": "¿Las cifras principales del documento (clientes B2B, tareas automatizadas al mes, agentes 24/7, modelos ruteados) van acompañadas de un enlace o de un producto concreto donde un lector pueda comprobarlas?",
+      "respuesta": "no",
+      "p_si": 0.17,
+      "p_no": 0.83,
+      "p_nd": 0.0
+    },
+    {
+      "n": 2,
+      "id": "A2_productos_instalables",
+      "tipo": "A",
+      "pregunta": "¿Cada producto que el documento presenta como 'publicado' tiene un enlace a una tienda, demo o sitio donde se puede instalar o probar?",
+      "respuesta": "sí",
+      "p_si": 1.0,
+      "p_no": 0.0,
+      "p_nd": 0.0
+    },
+    {
+      "n": 3,
+      "id": "A3_experiencia_contrastable",
+      "tipo": "A",
+      "pregunta": "¿La experiencia previa en empresas (banca, consultora) se describe con detalle concreto suficiente (qué hizo, en qué escala) para poder contrastarla en una entrevista?",
+      "respuesta": "sí",
+      "p_si": 0.95,
+      "p_no": 0.05,
+      "p_nd": 0.0
+    },
+    {
+      "n": 4,
+      "id": "A4_cifras_sin_fuente",
+      "tipo": "A",
+      "pregunta": "¿Hay en el documento afirmaciones cuantitativas (porcentajes, conteos, costes) que no tengan ninguna fuente, enlace ni forma de comprobación?",
+      "respuesta": "sí",
+      "p_si": 1.0,
+      "p_no": 0.0,
+      "p_nd": 0.0
+    },
+    {
+      "n": 5,
+      "id": "B1_rol_claro",
+      "tipo": "B",
+      "pregunta": "¿Queda claro en las primeras líneas del documento qué tipo de rol busca la persona, dónde y con qué disponibilidad?",
+      "respuesta": "sí",
+      "p_si": 1.0,
+      "p_no": 0.0,
+      "p_nd": 0.0
+    },
+    {
+      "n": 6,
+      "id": "B2_produccion_vs_demo",
+      "tipo": "B",
+      "pregunta": "¿Distingue el documento explícitamente entre lo que está en producción con clientes reales y lo que es demo, beta o proyecto propio?",
+      "respuesta": "sí",
+      "p_si": 1.0,
+      "p_no": 0.0,
+      "p_nd": 0.0
+    },
+    {
+      "n": 7,
+      "id": "B3_un_solo_hilo",
+      "tipo": "B",
+      "pregunta": "¿Mantiene el documento un único hilo de posicionamiento profesional (infraestructura más agentes de IA en producción) sin dispersarse en temas sin relación?",
+      "respuesta": "sí",
+      "p_si": 0.75,
+      "p_no": 0.25,
+      "p_nd": 0.0
+    },
+    {
+      "n": 8,
+      "id": "B4_reclutador_no_tecnico",
+      "tipo": "B",
+      "pregunta": "¿Un reclutador sin formación técnica entendería en menos de un minuto de lectura qué hace esta persona y qué valor aporta?",
+      "respuesta": "no",
+      "p_si": 0.27,
+      "p_no": 0.73,
+      "p_nd": 0.0
+    },
+    {
+      "n": 9,
+      "id": "C1_contacto_y_disponibilidad",
+      "tipo": "C",
+      "pregunta": "¿Incluye el documento datos de contacto directos (correo, perfil profesional) y la disponibilidad para incorporarse?",
+      "respuesta": "sí",
+      "p_si": 1.0,
+      "p_no": 0.0,
+      "p_nd": 0.0
+    },
+    {
+      "n": 10,
+      "id": "C2_certificaciones_reconocibles",
+      "tipo": "C",
+      "pregunta": "¿Las certificaciones que lista el documento tienen nombres reconocibles por un reclutador del sector (fabricante o entidad y nombre del certificado)?",
+      "respuesta": "sí",
+      "p_si": 0.96,
+      "p_no": 0.04,
+      "p_nd": 0.0
+    },
+    {
+      "n": 11,
+      "id": "C3_stack_concreto",
+      "tipo": "C",
+      "pregunta": "¿Describe el documento el stack tecnológico con nombres concretos de lenguajes, bases de datos y herramientas, separando lo que usa a diario de lo que usa en proyectos propios?",
+      "respuesta": "sí",
+      "p_si": 1.0,
+      "p_no": 0.0,
+      "p_nd": 0.0
+    },
+    {
+      "n": 12,
+      "id": "C4_secciones_que_faltan",
+      "tipo": "C",
+      "pregunta": "¿Falta en el documento alguna sección habitual en un perfil profesional, como formación reglada, idiomas o una trayectoria cronológica con fechas por empresa?",
+      "respuesta": "sí",
+      "p_si": 1.0,
+      "p_no": 0.0,
+      "p_nd": 0.0
+    },
+    {
+      "n": 13,
+      "id": "D1_contradicciones",
+      "tipo": "D",
+      "pregunta": "¿Hay contradicciones numéricas, de fechas o de hechos entre distintas partes del documento?",
+      "respuesta": "no",
+      "p_si": 0.2,
+      "p_no": 0.79,
+      "p_nd": 0.01
+    },
+    {
+      "n": 14,
+      "id": "D2_infra_coherente_con_coste",
+      "tipo": "D",
+      "pregunta": "¿Las cifras de infraestructura (decenas de contenedores, servicios, reglas de cortafuegos, endpoints) son coherentes con la afirmación de dos servidores y un coste total mensual de unos trece euros?",
+      "respuesta": "sí",
+      "p_si": 0.52,
+      "p_no": 0.45,
+      "p_nd": 0.03
+    },
+    {
+      "n": 15,
+      "id": "D3_fechas_coherentes",
+      "tipo": "D",
+      "pregunta": "¿Las fechas que cita el documento (incidentes, certificaciones, años de experiencia) son coherentes entre sí y con la fecha implícita del documento?",
+      "respuesta": "no",
+      "p_si": 0.29,
+      "p_no": 0.7,
+      "p_nd": 0.01
+    },
+    {
+      "n": 16,
+      "id": "E1_expone_infraestructura",
+      "tipo": "E",
+      "pregunta": "¿Contiene el documento información sobre infraestructura real (direcciones, nombres de máquinas, detalles de seguridad) que un lector malintencionado pudiera aprovechar?",
+      "respuesta": "no",
+      "p_si": 0.19,
+      "p_no": 0.81,
+      "p_nd": 0.0
+    },
+    {
+      "n": 17,
+      "id": "E2_tono_arrogante",
+      "tipo": "E",
+      "pregunta": "¿El tono del documento (frases como 'no demos', 'no hype', 'código que funciona') podría leerse como arrogante o despectivo por una parte de los reclutadores?",
+      "respuesta": "sí",
+      "p_si": 0.96,
+      "p_no": 0.04,
+      "p_nd": 0.0
+    },
+    {
+      "n": 18,
+      "id": "E3_afirmaciones_exageradas",
+      "tipo": "E",
+      "pregunta": "¿Hay afirmaciones que, sin una prueba al lado, suenen exageradas o difíciles de creer para un lector técnico (por ejemplo, decenas de modelos desde un endpoint o reducciones de tiempo superiores al noventa por ciento)?",
+      "respuesta": "sí",
+      "p_si": 1.0,
+      "p_no": 0.0,
+      "p_nd": 0.0
+    },
+    {
+      "n": 19,
+      "id": "E4_marca_personal_vs_empresa",
+      "tipo": "E",
+      "pregunta": "¿Mezcla el documento de forma confusa la marca personal (correo personal, nombre propio) con marcas de empresa o de socio, de modo que no quede claro a quién se contrata?",
+      "respuesta": "no",
+      "p_si": 0.16,
+      "p_no": 0.84,
+      "p_nd": 0.0
+    },
+    {
+      "n": 20,
+      "id": "E5_demasiado_largo",
+      "tipo": "E",
+      "pregunta": "¿Es el documento demasiado largo o denso para lo que un lector espera de un README de perfil de GitHub, de modo que la información clave se pierda?",
+      "respuesta": "no",
+      "p_si": 0.23,
+      "p_no": 0.77,
+      "p_nd": 0.0
+    }
+  ],
+  "familias": [
+    {
+      "tipo": "A",
+      "nombre": "Credibilidad y verificabilidad",
+      "debil": 0.17,
+      "pregunta": 1
+    },
+    {
+      "tipo": "B",
+      "nombre": "Claridad y posicionamiento",
+      "debil": 0.27,
+      "pregunta": 8
+    },
+    {
+      "tipo": "C",
+      "nombre": "Completitud para un proceso de selección",
+      "debil": 0.96,
+      "pregunta": 10
+    },
+    {
+      "tipo": "D",
+      "nombre": "Coherencia interna",
+      "debil": 0.2,
+      "pregunta": 13
+    },
+    {
+      "tipo": "E",
+      "nombre": "Riesgos y señales de alarma",
+      "debil": 0.16,
+      "pregunta": 19
+    }
+  ]
+}
