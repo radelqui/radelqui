@@ -1,0 +1,217 @@
+{
+ "params": [
+  0.003993766673802658,
+  -0.8520077610536667,
+  0.4810964037132808
+ ],
+ "logloss_test": 1.0166361413674634,
+ "logloss_casas": 0.9936245849526767,
+ "base_segunda": {
+  "1": 0.2979061754571959,
+  "0": 0.4428836469652796,
+  "2": 0.2592101775775245
+ },
+ "partidos": [
+  {
+   "local": "Albacete",
+   "visitante": "Eibar",
+   "elo_local": 1413,
+   "elo_visit": 1607,
+   "p1": 0.266,
+   "px": 0.313,
+   "p2": 0.421,
+   "forma_local_6": 1,
+   "forma_visit_6": 18,
+   "h2h": [
+    "23/10/22 Eibar 1-1 Albacete",
+    "14/04/23 Albacete 3-1 Eibar",
+    "12/11/23 Eibar 1-1 Albacete",
+    "28/04/24 Albacete 2-1 Eibar",
+    "09/09/24 Albacete 0-1 Eibar",
+    "18/01/25 Eibar 1-1 Albacete",
+    "08/11/25 Eibar 3-2 Albacete",
+    "24/04/26 Albacete 0-3 Eibar"
+   ],
+   "h2h_signos": {
+    "X": 3,
+    "1": 2,
+    "2": 3
+   }
+  },
+  {
+   "local": "Almeria",
+   "visitante": "Burgos",
+   "elo_local": 1574,
+   "elo_visit": 1593,
+   "p1": 0.421,
+   "px": 0.313,
+   "p2": 0.266,
+   "forma_local_6": 12,
+   "forma_visit_6": 11,
+   "h2h": [
+    "07/11/21 Almeria 2-0 Burgos",
+    "30/04/22 Burgos 0-2 Almeria",
+    "05/10/24 Almeria 2-0 Burgos",
+    "21/03/25 Burgos 3-1 Almeria",
+    "14/12/25 Almeria 1-2 Burgos",
+    "09/05/26 Burgos 0-0 Almeria"
+   ],
+   "h2h_signos": {
+    "1": 3,
+    "2": 2,
+    "X": 1
+   }
+  },
+  {
+   "local": "Cadiz",
+   "visitante": "Leganes",
+   "elo_local": 1305,
+   "elo_visit": 1419,
+   "p1": 0.333,
+   "px": 0.321,
+   "p2": 0.346,
+   "forma_local_6": 3,
+   "forma_visit_6": 10,
+   "h2h": [
+    "22/08/25 Leganes 1-1 Cadiz",
+    "24/05/26 Cadiz 3-0 Leganes"
+   ],
+   "h2h_signos": {
+    "X": 1,
+    "1": 1
+   }
+  },
+  {
+   "local": "Sabadell",
+   "visitante": "Andorra",
+   "elo_local": 1511,
+   "elo_visit": 1419,
+   "p1": 0.531,
+   "px": 0.28,
+   "p2": 0.189,
+   "forma_local_6": 11,
+   "forma_visit_6": 3,
+   "h2h": [],
+   "h2h_signos": {}
+  },
+  {
+   "local": "Sociedad B",
+   "visitante": "Granada",
+   "elo_local": 1402,
+   "elo_visit": 1406,
+   "p1": 0.436,
+   "px": 0.31,
+   "p2": 0.255,
+   "forma_local_6": 8,
+   "forma_visit_6": 7,
+   "h2h": [
+    "04/10/25 Granada 5-2 Sociedad B",
+    "22/03/26 Sociedad B 0-2 Granada"
+   ],
+   "h2h_signos": {
+    "2": 2
+   }
+  },
+  {
+   "local": "Sp Gijon",
+   "visitante": "Celta B",
+   "elo_local": 1474,
+   "elo_visit": 1475,
+   "p1": 0.439,
+   "px": 0.309,
+   "p2": 0.252,
+   "forma_local_6": 9,
+   "forma_visit_6": 7,
+   "h2h": [],
+   "h2h_signos": {}
+  },
+  {
+   "local": "Castellon",
+   "visitante": "Ceuta",
+   "elo_local": 1644,
+   "elo_visit": 1420,
+   "p1": 0.657,
+   "px": 0.222,
+   "p2": 0.121,
+   "forma_local_6": 16,
+   "forma_visit_6": 4,
+   "h2h": [
+    "14/09/25 Castellon 3-3 Ceuta",
+    "09/05/26 Ceuta 1-1 Castellon"
+   ],
+   "h2h_signos": {
+    "X": 2
+   }
+  },
+  {
+   "local": "Las Palmas",
+   "visitante": "Valladolid",
+   "elo_local": 1545,
+   "elo_visit": 1370,
+   "p1": 0.613,
+   "px": 0.244,
+   "p2": 0.143,
+   "forma_local_6": 7,
+   "forma_visit_6": 8,
+   "h2h": [
+    "15/08/21 Las Palmas 1-1 Valladolid",
+    "19/03/22 Valladolid 0-1 Las Palmas",
+    "07/12/24 Las Palmas 2-1 Valladolid",
+    "28/02/25 Valladolid 1-1 Las Palmas",
+    "14/11/25 Valladolid 0-1 Las Palmas",
+    "03/05/26 Las Palmas 2-1 Valladolid"
+   ],
+   "h2h_signos": {
+    "X": 2,
+    "1": 4
+   }
+  },
+  {
+   "local": "Girona",
+   "visitante": "Mallorca",
+   "elo_local": 1591,
+   "elo_visit": 1582,
+   "p1": 0.449,
+   "px": 0.307,
+   "p2": 0.245,
+   "forma_local_6": 12,
+   "forma_visit_6": 10,
+   "h2h": [
+    "03/09/22 Mallorca 1-1 Girona",
+    "04/05/23 Girona 2-1 Mallorca",
+    "23/09/23 Girona 5-3 Mallorca",
+    "03/03/24 Mallorca 1-0 Girona",
+    "14/12/24 Mallorca 2-1 Girona",
+    "05/05/25 Girona 1-0 Mallorca",
+    "04/01/26 Mallorca 1-2 Girona",
+    "01/05/26 Girona 0-1 Mallorca"
+   ],
+   "h2h_signos": {
+    "X": 1,
+    "1": 4,
+    "2": 3
+   }
+  },
+  {
+   "local": "Cordoba",
+   "visitante": "Tenerife",
+   "elo_local": 1413,
+   "elo_visit": 1416,
+   "p1": 0.437,
+   "px": 0.309,
+   "p2": 0.253,
+   "forma_local_6": 6,
+   "forma_visit_6": 8,
+   "h2h": [
+    "22/09/18 Cordoba 1-1 Tenerife",
+    "09/02/19 Tenerife 0-2 Cordoba",
+    "08/12/24 Cordoba 3-0 Tenerife",
+    "15/02/25 Tenerife 2-3 Cordoba"
+   ],
+   "h2h_signos": {
+    "X": 1,
+    "1": 3
+   }
+  }
+ ]
+}

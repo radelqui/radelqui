@@ -1,0 +1,164 @@
+{
+ "nota": "Banco para que Jev (jev-1.13.0) dé una segunda opinión, de otra familia de modelo, sobre los 14 partidos 1X2 de la jornada 11 (3-5 oct 2026). Jev no es un modelo de fútbol: su valor es el desacuerdo con el modelo Elo, la comunidad y los pronosticadores. Las secciones van dentro del dossier.",
+ "contexto": "DOSSIER: catorce partidos de fútbol de la jornada 11 de La Quiniela (España), 3 a 5 de octubre de 2026. Para cada partido se da: categoría, fuerza Elo de cada equipo (1500 = media; la ventaja de campo vale +60), puntos recientes y enfrentamientos directos. Para los de Liga F, la clasificación. Juzga cada partido solo con los datos de su sección.",
+ "secciones": [
+  "PARTIDO 1: Albacete - Eibar.\nSegunda División 2026-27. Elo del local 1413, Elo del visitante 1607 (ventaja de campo ya incluida en el modelo: +60). Puntos en los últimos 6 partidos: local 1/18, visitante 18/18.\nEnfrentamientos directos desde 2018: 23/10/22 Eibar 1-1 Albacete; 14/04/23 Albacete 3-1 Eibar; 12/11/23 Eibar 1-1 Albacete; 28/04/24 Albacete 2-1 Eibar; 09/09/24 Albacete 0-1 Eibar; 18/01/25 Eibar 1-1 Albacete; 08/11/25 Eibar 3-2 Albacete; 24/04/26 Albacete 0-3 Eibar.",
+  "PARTIDO 2: Almería - Burgos.\nSegunda División 2026-27. Elo del local 1574, Elo del visitante 1593 (ventaja de campo ya incluida en el modelo: +60). Puntos en los últimos 6 partidos: local 12/18, visitante 11/18.\nEnfrentamientos directos desde 2018: 07/11/21 Almeria 2-0 Burgos; 30/04/22 Burgos 0-2 Almeria; 05/10/24 Almeria 2-0 Burgos; 21/03/25 Burgos 3-1 Almeria; 14/12/25 Almeria 1-2 Burgos; 09/05/26 Burgos 0-0 Almeria.",
+  "PARTIDO 3: Cádiz - Leganés.\nSegunda División 2026-27. Elo del local 1305, Elo del visitante 1419 (ventaja de campo ya incluida en el modelo: +60). Puntos en los últimos 6 partidos: local 3/18, visitante 10/18.\nEnfrentamientos directos desde 2018: 22/08/25 Leganes 1-1 Cadiz; 24/05/26 Cadiz 3-0 Leganes.",
+  "PARTIDO 4: Sabadell - Andorra.\nSegunda División 2026-27. Elo del local 1511, Elo del visitante 1419 (ventaja de campo ya incluida en el modelo: +60). Puntos en los últimos 6 partidos: local 11/18, visitante 3/18.\nEnfrentamientos directos desde 2018: ninguno registrado.",
+  "PARTIDO 5: R. Sociedad B - Granada.\nSegunda División 2026-27. Elo del local 1402, Elo del visitante 1406 (ventaja de campo ya incluida en el modelo: +60). Puntos en los últimos 6 partidos: local 8/18, visitante 7/18.\nEnfrentamientos directos desde 2018: 04/10/25 Granada 5-2 Sociedad B; 22/03/26 Sociedad B 0-2 Granada.",
+  "PARTIDO 6: Sporting - Celta B.\nSegunda División 2026-27. Elo del local 1474, Elo del visitante 1475 (ventaja de campo ya incluida en el modelo: +60). Puntos en los últimos 6 partidos: local 9/18, visitante 7/18.\nEnfrentamientos directos desde 2018: ninguno registrado.",
+  "PARTIDO 7: Castellón - Ceuta.\nSegunda División 2026-27. Elo del local 1644, Elo del visitante 1420 (ventaja de campo ya incluida en el modelo: +60). Puntos en los últimos 6 partidos: local 16/18, visitante 4/18.\nEnfrentamientos directos desde 2018: 14/09/25 Castellon 3-3 Ceuta; 09/05/26 Ceuta 1-1 Castellon.",
+  "PARTIDO 8: Las Palmas - Valladolid.\nSegunda División 2026-27. Elo del local 1545, Elo del visitante 1370 (ventaja de campo ya incluida en el modelo: +60). Puntos en los últimos 6 partidos: local 7/18, visitante 8/18.\nEnfrentamientos directos desde 2018: 15/08/21 Las Palmas 1-1 Valladolid; 19/03/22 Valladolid 0-1 Las Palmas; 07/12/24 Las Palmas 2-1 Valladolid; 28/02/25 Valladolid 1-1 Las Palmas; 14/11/25 Valladolid 0-1 Las Palmas; 03/05/26 Las Palmas 2-1 Valladolid.",
+  "PARTIDO 9: Girona - Mallorca.\nSegunda División 2026-27. Elo del local 1591, Elo del visitante 1582 (ventaja de campo ya incluida en el modelo: +60). Puntos en los últimos 6 partidos: local 12/18, visitante 10/18.\nEnfrentamientos directos desde 2018: 03/09/22 Mallorca 1-1 Girona; 04/05/23 Girona 2-1 Mallorca; 23/09/23 Girona 5-3 Mallorca; 03/03/24 Mallorca 1-0 Girona; 14/12/24 Mallorca 2-1 Girona; 05/05/25 Girona 1-0 Mallorca; 04/01/26 Mallorca 1-2 Girona; 01/05/26 Girona 0-1 Mallorca.",
+  "PARTIDO 10: Córdoba - Tenerife.\nSegunda División 2026-27. Elo del local 1413, Elo del visitante 1416 (ventaja de campo ya incluida en el modelo: +60). Puntos en los últimos 6 partidos: local 6/18, visitante 8/18.\nEnfrentamientos directos desde 2018: 22/09/18 Cordoba 1-1 Tenerife; 09/02/19 Tenerife 0-2 Cordoba; 08/12/24 Cordoba 3-0 Tenerife; 15/02/25 Tenerife 2-3 Cordoba.",
+  "PARTIDO 11: Barcelona F - Real Madrid F.\nLiga F 2026-27, jornada 6. Barcelona F: 1ª, 15 pts, 21 goles a favor y 2 en contra en 5 jornadas. Real Madrid F: 2ª, 13 pts (4 victorias, 1 empate). Barcelona ha ganado todos los clásicos ligueros de las últimas temporadas.",
+  "PARTIDO 12: Deportivo F - Atlético F.\nLiga F 2026-27, jornada 6. Deportivo F: 11ª, 5 pts (1 victoria, 2 empates, 2 derrotas, 4 goles a favor y 4 en contra). Atlético F: 8ª, 6 pts (2 victorias, 3 derrotas, 8 a favor, 10 en contra).",
+  "PARTIDO 13: Madrid CFF - Athletic F.\nLiga F 2026-27, jornada 6. Madrid CFF: 3ª, 12 pts (4 victorias, 1 derrota, 9 a favor, 7 en contra). Athletic F: 4ª, 10 pts (3 victorias, 1 empate, 1 derrota). Athletic ganó los dos enfrentamientos de la temporada pasada.",
+  "PARTIDO 14: Tenerife F - Logroño F.\nLiga F 2026-27, jornada 6. Tenerife F: 14ª, 5 pts (1 victoria, 2 empates, 2 derrotas, 4 a favor, 10 en contra). Logroño F: 7ª, 6 pts (2 victorias, 3 derrotas, 4 a favor, 5 en contra)."
+ ],
+ "preguntas": [
+  {
+   "n": 1,
+   "id": "P01_signo",
+   "instructions": "Sobre el PARTIDO 1 (Albacete - Eibar): con los datos de esa sección, ¿qué signo es el más probable?",
+   "criteria": {
+    "1": "Gana el equipo local.",
+    "X": "Empate.",
+    "2": "Gana el equipo visitante."
+   }
+  },
+  {
+   "n": 2,
+   "id": "P02_signo",
+   "instructions": "Sobre el PARTIDO 2 (Almería - Burgos): con los datos de esa sección, ¿qué signo es el más probable?",
+   "criteria": {
+    "1": "Gana el equipo local.",
+    "X": "Empate.",
+    "2": "Gana el equipo visitante."
+   }
+  },
+  {
+   "n": 3,
+   "id": "P03_signo",
+   "instructions": "Sobre el PARTIDO 3 (Cádiz - Leganés): con los datos de esa sección, ¿qué signo es el más probable?",
+   "criteria": {
+    "1": "Gana el equipo local.",
+    "X": "Empate.",
+    "2": "Gana el equipo visitante."
+   }
+  },
+  {
+   "n": 4,
+   "id": "P04_signo",
+   "instructions": "Sobre el PARTIDO 4 (Sabadell - Andorra): con los datos de esa sección, ¿qué signo es el más probable?",
+   "criteria": {
+    "1": "Gana el equipo local.",
+    "X": "Empate.",
+    "2": "Gana el equipo visitante."
+   }
+  },
+  {
+   "n": 5,
+   "id": "P05_signo",
+   "instructions": "Sobre el PARTIDO 5 (R. Sociedad B - Granada): con los datos de esa sección, ¿qué signo es el más probable?",
+   "criteria": {
+    "1": "Gana el equipo local.",
+    "X": "Empate.",
+    "2": "Gana el equipo visitante."
+   }
+  },
+  {
+   "n": 6,
+   "id": "P06_signo",
+   "instructions": "Sobre el PARTIDO 6 (Sporting - Celta B): con los datos de esa sección, ¿qué signo es el más probable?",
+   "criteria": {
+    "1": "Gana el equipo local.",
+    "X": "Empate.",
+    "2": "Gana el equipo visitante."
+   }
+  },
+  {
+   "n": 7,
+   "id": "P07_signo",
+   "instructions": "Sobre el PARTIDO 7 (Castellón - Ceuta): con los datos de esa sección, ¿qué signo es el más probable?",
+   "criteria": {
+    "1": "Gana el equipo local.",
+    "X": "Empate.",
+    "2": "Gana el equipo visitante."
+   }
+  },
+  {
+   "n": 8,
+   "id": "P08_signo",
+   "instructions": "Sobre el PARTIDO 8 (Las Palmas - Valladolid): con los datos de esa sección, ¿qué signo es el más probable?",
+   "criteria": {
+    "1": "Gana el equipo local.",
+    "X": "Empate.",
+    "2": "Gana el equipo visitante."
+   }
+  },
+  {
+   "n": 9,
+   "id": "P09_signo",
+   "instructions": "Sobre el PARTIDO 9 (Girona - Mallorca): con los datos de esa sección, ¿qué signo es el más probable?",
+   "criteria": {
+    "1": "Gana el equipo local.",
+    "X": "Empate.",
+    "2": "Gana el equipo visitante."
+   }
+  },
+  {
+   "n": 10,
+   "id": "P10_signo",
+   "instructions": "Sobre el PARTIDO 10 (Córdoba - Tenerife): con los datos de esa sección, ¿qué signo es el más probable?",
+   "criteria": {
+    "1": "Gana el equipo local.",
+    "X": "Empate.",
+    "2": "Gana el equipo visitante."
+   }
+  },
+  {
+   "n": 11,
+   "id": "P11_signo",
+   "instructions": "Sobre el PARTIDO 11 (Barcelona F - Real Madrid F): con los datos de esa sección, ¿qué signo es el más probable?",
+   "criteria": {
+    "1": "Gana el equipo local.",
+    "X": "Empate.",
+    "2": "Gana el equipo visitante."
+   }
+  },
+  {
+   "n": 12,
+   "id": "P12_signo",
+   "instructions": "Sobre el PARTIDO 12 (Deportivo F - Atlético F): con los datos de esa sección, ¿qué signo es el más probable?",
+   "criteria": {
+    "1": "Gana el equipo local.",
+    "X": "Empate.",
+    "2": "Gana el equipo visitante."
+   }
+  },
+  {
+   "n": 13,
+   "id": "P13_signo",
+   "instructions": "Sobre el PARTIDO 13 (Madrid CFF - Athletic F): con los datos de esa sección, ¿qué signo es el más probable?",
+   "criteria": {
+    "1": "Gana el equipo local.",
+    "X": "Empate.",
+    "2": "Gana el equipo visitante."
+   }
+  },
+  {
+   "n": 14,
+   "id": "P14_signo",
+   "instructions": "Sobre el PARTIDO 14 (Tenerife F - Logroño F): con los datos de esa sección, ¿qué signo es el más probable?",
+   "criteria": {
+    "1": "Gana el equipo local.",
+    "X": "Empate.",
+    "2": "Gana el equipo visitante."
+   }
+  }
+ ],
+ "columnaA": "21X1X111X11211",
+ "columnaB": "21211111111221"
+}

@@ -1,0 +1,435 @@
+{
+ "modelo": "jev-1.13.0",
+ "cuando": "2026-10-02T06:39:10",
+ "uso": {
+  "input_tokens": 16974,
+  "output_tokens": 2208
+ },
+ "columna_jev": "21211111111211",
+ "filas": [
+  {
+   "n": 1,
+   "partido": "Albacete - Eibar",
+   "jev": "2",
+   "p": {
+    "2": 0.98,
+    "X": 0.0,
+    "1": 0.02
+   },
+   "jugaria": "doble_12",
+   "p_jugaria": {
+    "doble_X2": 0.03,
+    "fijo_2": 0.05,
+    "doble_12": 0.39,
+    "fijo_X": 0.03,
+    "doble_1X": 0.16,
+    "fijo_1": 0.34
+   },
+   "propuesta": "21"
+  },
+  {
+   "n": 2,
+   "partido": "Almería - Burgos",
+   "jev": "1",
+   "p": {
+    "2": 0.0,
+    "X": 0.0,
+    "1": 1.0
+   },
+   "jugaria": "fijo_2",
+   "p_jugaria": {
+    "doble_X2": 0.18,
+    "doble_12": 0.04,
+    "fijo_X": 0.03,
+    "fijo_2": 0.49,
+    "fijo_1": 0.18,
+    "doble_1X": 0.08
+   },
+   "propuesta": "fijo_1"
+  },
+  {
+   "n": 3,
+   "partido": "Cádiz - Leganés",
+   "jev": "2",
+   "p": {
+    "2": 1.0,
+    "X": 0.0,
+    "1": 0.0
+   },
+   "jugaria": "fijo_2",
+   "p_jugaria": {
+    "doble_X2": 0.18,
+    "fijo_2": 0.3,
+    "doble_12": 0.19,
+    "fijo_X": 0.06,
+    "fijo_1": 0.19,
+    "doble_1X": 0.08
+   },
+   "propuesta": "fijo_2"
+  },
+  {
+   "n": 4,
+   "partido": "Sabadell - Andorra",
+   "jev": "1",
+   "p": {
+    "2": 0.0,
+    "X": 0.0,
+    "1": 1.0
+   },
+   "jugaria": "doble_1X",
+   "p_jugaria": {
+    "doble_X2": 0.15,
+    "fijo_2": 0.04,
+    "doble_12": 0.01,
+    "fijo_X": 0.11,
+    "doble_1X": 0.63,
+    "fijo_1": 0.06
+   },
+   "propuesta": "1X"
+  },
+  {
+   "n": 5,
+   "partido": "R. Sociedad B - Granada",
+   "jev": "1",
+   "p": {
+    "2": 0.0,
+    "X": 0.01,
+    "1": 0.99
+   },
+   "jugaria": "fijo_1",
+   "p_jugaria": {
+    "doble_X2": 0.11,
+    "doble_12": 0.29,
+    "fijo_X": 0.13,
+    "fijo_2": 0.09,
+    "fijo_1": 0.31,
+    "doble_1X": 0.07
+   },
+   "propuesta": "fijo_1"
+  },
+  {
+   "n": 6,
+   "partido": "Sporting - Celta B",
+   "jev": "1",
+   "p": {
+    "2": 0.0,
+    "X": 0.0,
+    "1": 1.0
+   },
+   "jugaria": "doble_X2",
+   "p_jugaria": {
+    "doble_X2": 0.31,
+    "doble_12": 0.04,
+    "fijo_X": 0.05,
+    "fijo_2": 0.26,
+    "fijo_1": 0.24,
+    "doble_1X": 0.1
+   },
+   "propuesta": "fijo_1"
+  },
+  {
+   "n": 7,
+   "partido": "Castellón - Ceuta",
+   "jev": "1",
+   "p": {
+    "2": 0.0,
+    "X": 0.0,
+    "1": 1.0
+   },
+   "jugaria": "fijo_1",
+   "p_jugaria": {
+    "doble_X2": 0.35,
+    "doble_12": 0.01,
+    "fijo_X": 0.11,
+    "fijo_2": 0.05,
+    "fijo_1": 0.42,
+    "doble_1X": 0.06
+   },
+   "propuesta": "fijo_1"
+  },
+  {
+   "n": 8,
+   "partido": "Las Palmas - Valladolid",
+   "jev": "1",
+   "p": {
+    "2": 0.0,
+    "X": 0.0,
+    "1": 1.0
+   },
+   "jugaria": "fijo_2",
+   "p_jugaria": {
+    "doble_X2": 0.28,
+    "fijo_2": 0.47,
+    "doble_12": 0.04,
+    "fijo_X": 0.01,
+    "doble_1X": 0.08,
+    "fijo_1": 0.12
+   },
+   "propuesta": "fijo_1"
+  },
+  {
+   "n": 9,
+   "partido": "Girona - Mallorca",
+   "jev": "1",
+   "p": {
+    "2": 0.0,
+    "X": 0.0,
+    "1": 1.0
+   },
+   "jugaria": "fijo_2",
+   "p_jugaria": {
+    "doble_X2": 0.27,
+    "fijo_2": 0.33,
+    "doble_12": 0.07,
+    "fijo_X": 0.03,
+    "fijo_1": 0.2,
+    "doble_1X": 0.1
+   },
+   "propuesta": "fijo_1"
+  },
+  {
+   "n": 10,
+   "partido": "Córdoba - Tenerife",
+   "jev": "1",
+   "p": {
+    "2": 0.0,
+    "X": 0.0,
+    "1": 1.0
+   },
+   "jugaria": "doble_1X",
+   "p_jugaria": {
+    "doble_X2": 0.09,
+    "fijo_X": 0.06,
+    "fijo_2": 0.03,
+    "doble_12": 0.01,
+    "doble_1X": 0.69,
+    "fijo_1": 0.12
+   },
+   "propuesta": "1X"
+  },
+  {
+   "n": 11,
+   "partido": "Barcelona F - Real Madrid F",
+   "jev": "1",
+   "p": {
+    "2": 0.0,
+    "X": 0.0,
+    "1": 1.0
+   },
+   "jugaria": "fijo_1",
+   "p_jugaria": {
+    "doble_X2": 0.23,
+    "fijo_2": 0.32,
+    "doble_12": 0.02,
+    "fijo_X": 0.02,
+    "fijo_1": 0.38,
+    "doble_1X": 0.03
+   },
+   "propuesta": "fijo_1"
+  },
+  {
+   "n": 12,
+   "partido": "Deportivo F - Atlético F",
+   "jev": "2",
+   "p": {
+    "2": 1.0,
+    "X": 0.0,
+    "1": 0.0
+   },
+   "jugaria": "fijo_2",
+   "p_jugaria": {
+    "doble_X2": 0.08,
+    "doble_12": 0.12,
+    "fijo_X": 0.01,
+    "fijo_2": 0.6,
+    "doble_1X": 0.05,
+    "fijo_1": 0.14
+   },
+   "propuesta": "fijo_2"
+  },
+  {
+   "n": 13,
+   "partido": "Madrid CFF - Athletic F",
+   "jev": "1",
+   "p": {
+    "2": 0.0,
+    "X": 0.0,
+    "1": 1.0
+   },
+   "jugaria": "doble_12",
+   "p_jugaria": {
+    "doble_X2": 0.03,
+    "fijo_X": 0.01,
+    "fijo_2": 0.11,
+    "doble_12": 0.72,
+    "doble_1X": 0.02,
+    "fijo_1": 0.11
+   },
+   "propuesta": "12"
+  },
+  {
+   "n": 14,
+   "partido": "Tenerife F - Logroño F",
+   "jev": "1",
+   "p": {
+    "2": 0.0,
+    "X": 0.0,
+    "1": 1.0
+   },
+   "jugaria": "fijo_X",
+   "p_jugaria": {
+    "doble_X2": 0.03,
+    "fijo_X": 0.32,
+    "fijo_2": 0.02,
+    "doble_12": 0.03,
+    "doble_1X": 0.29,
+    "fijo_1": 0.31
+   },
+   "propuesta": "fijo_1"
+  }
+ ],
+ "veredicto": {
+  "D01": {
+   "type": "choice",
+   "choice": "si",
+   "confidence": 0.55,
+   "probabilities": {
+    "no_determinable": 0.01,
+    "no": 0.3,
+    "si": 0.69
+   }
+  },
+  "D02": {
+   "type": "choice",
+   "choice": "si",
+   "confidence": 0.89,
+   "probabilities": {
+    "no_determinable": 0.0,
+    "no": 0.07,
+    "si": 0.93
+   }
+  },
+  "D03": {
+   "type": "choice",
+   "choice": "no",
+   "confidence": 0.78,
+   "probabilities": {
+    "no_determinable": 0.01,
+    "no": 0.86,
+    "si": 0.13
+   }
+  },
+  "D04": {
+   "type": "choice",
+   "choice": "no",
+   "confidence": 0.56,
+   "probabilities": {
+    "no_determinable": 0.02,
+    "no": 0.71,
+    "si": 0.27
+   }
+  },
+  "D05": {
+   "type": "choice",
+   "choice": "si",
+   "confidence": 0.32,
+   "probabilities": {
+    "no_determinable": 0.01,
+    "no": 0.44,
+    "si": 0.55
+   }
+  },
+  "D06": {
+   "type": "choice",
+   "choice": "no",
+   "confidence": 0.27,
+   "probabilities": {
+    "no_determinable": 0.01,
+    "no": 0.51,
+    "si": 0.48
+   }
+  },
+  "D07": {
+   "type": "choice",
+   "choice": "no",
+   "confidence": 0.32,
+   "probabilities": {
+    "no_determinable": 0.19,
+    "no": 0.55,
+    "si": 0.26
+   }
+  },
+  "D08": {
+   "type": "choice",
+   "choice": "no_determinable",
+   "confidence": 0.69,
+   "probabilities": {
+    "no_determinable": 0.8,
+    "no": 0.19,
+    "si": 0.01
+   }
+  },
+  "D09": {
+   "type": "choice",
+   "choice": "si",
+   "confidence": 0.25,
+   "probabilities": {
+    "no_determinable": 0.22,
+    "no": 0.28,
+    "si": 0.5
+   }
+  },
+  "D10": {
+   "type": "choice",
+   "choice": "quitar_13",
+   "confidence": 0.15,
+   "probabilities": {
+    "quitar_1": 0.32,
+    "quitar_10": 0.17,
+    "quitar_13": 0.32,
+    "quitar_4": 0.14,
+    "ninguno": 0.05
+   }
+  },
+  "D11": {
+   "type": "choice",
+   "choice": "p8",
+   "confidence": 0.11,
+   "probabilities": {
+    "p8": 0.26,
+    "p3": 0.18,
+    "p5": 0.21,
+    "p9": 0.14,
+    "p14": 0.12,
+    "ninguno": 0.09
+   }
+  },
+  "NOTA": {
+   "type": "score",
+   "score": 1.54,
+   "confidence": 0.42,
+   "legend": {
+    "0": "Mala: va contra los datos.",
+    "1": "Floja: desaprovecha el valor evidente.",
+    "2": "Aceptable: razonable con mejoras claras.",
+    "3": "Buena: bien construida, mejoras menores.",
+    "4": "Muy buena: no la cambiaría."
+   },
+   "probabilities": {
+    "0": 0.08,
+    "1": 0.46,
+    "2": 0.32,
+    "3": 0.13,
+    "4": 0.01
+   }
+  },
+  "F1": {
+   "type": "noul",
+   "noul": 0.84
+  },
+  "F2": {
+   "type": "noul",
+   "noul": 0.47
+  }
+ }
+}

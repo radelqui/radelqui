@@ -1,0 +1,860 @@
+{
+ "nota": "Auditoría del método por Jev: dónde puede flaquear. Una llamada por familia; cada familia lleva además una nota de gravedad 1-5.",
+ "familias": {
+  "A": "Datos",
+  "B": "Modelo",
+  "C": "Mezcla de fuentes",
+  "D": "Popularidad y premios",
+  "E": "Análisis de valor",
+  "F": "Construcción de la múltiple",
+  "G": "Uso de Jev",
+  "H": "Proceso y decisión"
+ },
+ "preguntas": [
+  {
+   "id": "A01",
+   "familia": "A",
+   "instructions": "¿Faltan datos relevantes para 4 de los 14 partidos (Liga F) hasta el punto de que esas probabilidades sean poco más que una opinión?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "A02",
+   "familia": "A",
+   "instructions": "¿Es un problema que Ceuta, Sabadell y Andorra tengan un Elo casi inicial (1500 más 7 partidos), de modo que sus partidos estén mal medidos?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "A03",
+   "familia": "A",
+   "instructions": "¿Los equipos filiales (Real Sociedad B, Celta B) tienen una dinámica distinta que el modelo no captura y que debería tratarse aparte?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "A04",
+   "familia": "A",
+   "instructions": "¿Ignorar alineaciones, lesiones y sanciones es una debilidad grave para partidos que se juegan 1 a 3 días después del análisis?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "A05",
+   "familia": "A",
+   "instructions": "¿Es insuficiente usar solo 7 jornadas de la temporada actual para medir la forma de equipos que cambiaron mucho de plantilla en verano?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "A06",
+   "familia": "A",
+   "instructions": "¿Faltan las cuotas de las casas para los partidos de esta jornada, y su ausencia debilita el modelo más que cualquier otro dato?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "A07",
+   "familia": "A",
+   "instructions": "¿Agrupar jornadas históricas por semana natural (9-12 partidos) puede producir jornadas artificiales que distorsionen la estadística de empates?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "A08",
+   "familia": "A",
+   "instructions": "¿Escalar las estadísticas de 11 partidos a 14 (multiplicar por 14/11) introduce un sesgo apreciable en la cuenta de empates por jornada?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "A09",
+   "familia": "A",
+   "instructions": "¿La ausencia total de datos sobre el partido 15 (selecciones) hace que el pleno al 15 sea una elección sin base?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "A10",
+   "familia": "A",
+   "instructions": "¿La base de 6.882 partidos mezcla Primera y Segunda de forma que los parámetros queden dominados por una división con distinta tasa de empates?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "A11",
+   "familia": "A",
+   "instructions": "¿Hay riesgo de que el mapeo de nombres de equipos entre fuentes (por ejemplo Sp Gijon, Sociedad B) haya perdido o duplicado partidos?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "B01",
+   "familia": "B",
+   "instructions": "¿Un K fijo de 20 sin periodo de arranque rápido para equipos nuevos es una debilidad que afecta a esta jornada en concreto?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "B02",
+   "familia": "B",
+   "instructions": "¿Una ventaja de campo fija de +60 para todos los equipos y divisiones es una simplificación que sesga partidos concretos?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "B03",
+   "familia": "B",
+   "instructions": "¿La falta de un término de propensión al empate por equipo hace que el modelo reparta la X de forma casi uniforme y pierda información?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "B04",
+   "familia": "B",
+   "instructions": "¿Un logit ordenado con solo la diferencia de Elo como variable es demasiado pobre frente a lo que las casas incorporan?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "B05",
+   "familia": "B",
+   "instructions": "¿Que el modelo pierda frente a las casas (1,017 contra 0,994 de log-loss) significa que apostar contra el público usando el modelo no tiene base?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "B06",
+   "familia": "B",
+   "instructions": "¿La calibración 1,1 medida sobre 2024-26 garantiza que las probabilidades de esta jornada están bien calibradas en los partidos igualados?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "B07",
+   "familia": "B",
+   "instructions": "¿Conservar el Elo al cambiar de división sobrevalora a los descendidos de Primera (Las Palmas, Valladolid, Girona, Mallorca, Leganés) en Segunda?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "B08",
+   "familia": "B",
+   "instructions": "¿La ausencia de decaimiento temporal hace que resultados de 2018-2020 pesen tanto como los recientes y contaminen el Elo actual?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "B09",
+   "familia": "B",
+   "instructions": "¿Es una debilidad no usar los goles esperados (xG) que la base ya trae?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "B10",
+   "familia": "B",
+   "instructions": "¿El ajuste por descenso de gradiente numérico con 3 parámetros puede haber quedado en un óptimo pobre, y debería verificarse con otro método?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "B11",
+   "familia": "B",
+   "instructions": "¿Que el modelo no distinga partidos entre semana, lunes o con descanso corto es relevante para esta jornada?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "B12",
+   "familia": "B",
+   "instructions": "¿El modelo trata igual un 0-0 que un 3-3 y pierde una señal útil sobre la propensión al empate?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "C01",
+   "familia": "C",
+   "instructions": "¿Usar el porcentaje de una comunidad de 294 quinielistas como el 30 % de la probabilidad confunde popularidad con probabilidad?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "C02",
+   "familia": "C",
+   "instructions": "¿Hay doble conteo al usar popularidad en la probabilidad final y, además, popularidad para estimar acertantes, lo que amortigua artificialmente el valor?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "C03",
+   "familia": "C",
+   "instructions": "¿Los pesos 50/30/20 sin ajuste son un riesgo mayor que cualquier otro supuesto del método?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "C04",
+   "familia": "C",
+   "instructions": "¿Convertir pronósticos de tres webs en una distribución (1 fijo = 1, doble = 0,5) es una aproximación que puede sesgar hacia el empate o contra él?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "C05",
+   "familia": "C",
+   "instructions": "¿Mezclar linealmente probabilidades en vez de en escala logarítmica produce probabilidades finales demasiado planas en los partidos claros?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "C06",
+   "familia": "C",
+   "instructions": "¿Las probabilidades a ojo de la Liga F (por ejemplo 70/18/12 para Barcelona-Real Madrid) deberían considerarse el eslabón más débil de la mezcla?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "C07",
+   "familia": "C",
+   "instructions": "¿Los tres pronosticadores públicos son fuentes independientes o copian las cuotas y la opinión general, de modo que aportan menos de lo que parece?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "C08",
+   "familia": "C",
+   "instructions": "¿Habría que reducir el peso de la comunidad porque el foro tiene sesgo propio (jugadores que buscan sorpresas)?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "C09",
+   "familia": "C",
+   "instructions": "¿El analista debería haber medido la sensibilidad del resultado a los pesos antes de recomendar?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "D01",
+   "familia": "D",
+   "instructions": "¿Usar los porcentajes de un sitio web en lugar de los oficiales de Loterías puede cambiar qué signos aparecen como infravalorados?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "D02",
+   "familia": "D",
+   "instructions": "¿Suponer que el público elige cada partido de forma independiente infraestima cuánta gente juega exactamente la columna de favoritos?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "D03",
+   "familia": "D",
+   "instructions": "¿La discrepancia con la realidad (modelo: ~4 acertantes de 14 y 124 de 13; realidad reciente: 0 de 14 y 2-22 de 13) invalida las estimaciones absolutas de premio?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "D04",
+   "familia": "D",
+   "instructions": "¿Corregir los retornos con un único factor 0,69 (de 80 % a 55 %) es una solución válida o enmascara un error estructural en el reparto por categorías?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "D05",
+   "familia": "D",
+   "instructions": "¿El arrastre de categorías sin acertantes a la inferior está modelado de forma que pueda inflar el premio de 12 y 11 aciertos?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "D06",
+   "familia": "D",
+   "instructions": "¿La recaudación de 1,35 M€ es una estimación cuya incertidumbre afecta de forma importante a las conclusiones?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "D07",
+   "familia": "D",
+   "instructions": "¿Ignorar la fiscalidad de premios superiores a 40.000 € cambia alguna conclusión práctica?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "D08",
+   "familia": "D",
+   "instructions": "¿La simplificación del pleno al 15 (probabilidad 0,30, popularidad 0,45) es defendible o arbitraria?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "D09",
+   "familia": "D",
+   "instructions": "¿El reparto por categorías citado (7,5/16/7,5/7,5/7,5/9) debería verificarse en la normativa antes de confiar en él?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "D10",
+   "familia": "D",
+   "instructions": "¿Que los acertantes reales de categorías altas sean mucho menores que los modelados sugiere que las columnas poco populares están aún más solas de lo que el modelo dice?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "D11",
+   "familia": "D",
+   "instructions": "¿El modelo ignora que en jornadas 'sorpresa' el bote arrastra y cambia la estrategia óptima de la semana siguiente?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "E01",
+   "familia": "E",
+   "instructions": "¿La conclusión 'el público juega menos empates de los que salen' es estructural y fiable, o puede ser ruido de una muestra de 233 jornadas?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "E02",
+   "familia": "E",
+   "instructions": "¿Un umbral de valor de 1,2 fijado a criterio puede estar seleccionando signos por azar?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "E03",
+   "familia": "E",
+   "instructions": "¿El valor calculado para la X depende de que el modelo reparta la X de forma plana, de modo que el valor sea un artefacto del propio modelo?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "E04",
+   "familia": "E",
+   "instructions": "¿Hay circularidad en que la probabilidad final incluya la popularidad del foro y luego se divida por la popularidad del sitio?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "E05",
+   "familia": "E",
+   "instructions": "¿La estadística 'todo favoritos nunca llegó a 12 de 14 en 233 jornadas' se está interpretando más allá de lo que demuestra?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "E06",
+   "familia": "E",
+   "instructions": "¿Los retornos estimados por encima del 100 % (columna A ~165 %) son creíbles o señal de un error en la cadena de supuestos?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "E07",
+   "familia": "E",
+   "instructions": "¿La simulación de 20.000 jornadas es suficiente para estimar probabilidades del orden de 1 entre 200 y 1 entre 2.000 con precisión útil?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "E08",
+   "familia": "E",
+   "instructions": "¿El análisis de valor debería hacerse con probabilidades de las casas en lugar de con las del modelo propio?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "E09",
+   "familia": "E",
+   "instructions": "¿El valor en la X de Tenerife F-Logroño (30 % frente a 25 %) es demasiado pequeño para justificar un doble?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "E10",
+   "familia": "E",
+   "instructions": "¿El método confunde 'pocos acertantes' con 'alta esperanza', cuando lo primero puede lograrse con columnas simplemente improbables?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "F01",
+   "familia": "F",
+   "instructions": "¿Elegir los 4 dobles por mayor esperanza en una búsqueda sobre 70 combinaciones con 4.000 simulaciones cada una es suficientemente estable?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "F02",
+   "familia": "F",
+   "instructions": "¿Descartar el 2 en Madrid CFF-Athletic (31 %) para dejar fijo el 1 es coherente con el criterio de valor aplicado en otros partidos?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "F03",
+   "familia": "F",
+   "instructions": "¿Una múltiple de 4 dobles correlaciona las 16 columnas de forma que la varianza real es mayor que la que sugiere la simulación?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "F04",
+   "familia": "F",
+   "instructions": "¿Habría sido mejor jugar 16 columnas distintas elegidas por esperanza que una múltiple directa?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "F05",
+   "familia": "F",
+   "instructions": "¿Un pleno al 15 único (2-0) para las 16 columnas es una debilidad para la categoría especial?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "F06",
+   "familia": "F",
+   "instructions": "¿Fijar el presupuesto en 12 € antes de conocer el valor condiciona la estructura de la apuesta de forma perjudicial?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "F07",
+   "familia": "F",
+   "instructions": "¿Incluir la columna de Jev dentro de la múltiple responde a evidencia o a complacer al jugador?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "F08",
+   "familia": "F",
+   "instructions": "¿La múltiple sigue teniendo solo 2 empates por columna de media cuando el histórico dice 4,1, es decir, sigue en el lado poco probable?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "F09",
+   "familia": "F",
+   "instructions": "¿Debería la múltiple contener al menos una columna con 4 o 5 empates para cubrir la jornada típica?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "F10",
+   "familia": "F",
+   "instructions": "¿La recomendación de 'si solo juegas una, la A' es coherente con haber recomendado antes la B?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "G01",
+   "familia": "G",
+   "instructions": "¿Dar a Jev un dossier con las probabilidades del modelo convirtió su respuesta en un eco del modelo en vez de una segunda opinión?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "G02",
+   "familia": "G",
+   "instructions": "¿Las probabilidades extremas (1,00/0,00 en nueve partidos) indican que Jev no debe usarse como estimador de probabilidad en este dominio?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "G03",
+   "familia": "G",
+   "instructions": "¿El cambio de bando con confianza mayor de 0,89 entre dos pasadas demuestra que las respuestas de Jev dependen más del texto que de los hechos?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "G04",
+   "familia": "G",
+   "instructions": "¿Que Jev no eligiera X en 28 respuestas revela un sesgo sistemático contra el empate en este tipo de pregunta?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "G05",
+   "familia": "G",
+   "instructions": "¿Preguntar 'qué signo es el más probable' con criterios 1/X/2 es un formato inadecuado y habría que preguntar por probabilidades de cada signo por separado?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "G06",
+   "familia": "G",
+   "instructions": "¿Pedir los 14 partidos en una sola llamada permite que unos partidos contaminen a otros?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "G07",
+   "familia": "G",
+   "instructions": "¿Fue correcto tratar a Jev como un voto más (sin peso en las probabilidades) en lugar de descartarlo o de integrarlo?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "G08",
+   "familia": "G",
+   "instructions": "¿Jev sería más útil evaluando el método (como ahora) que prediciendo partidos?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "G09",
+   "familia": "G",
+   "instructions": "¿Un dossier en español con nombres de equipos poco conocidos puede degradar la respuesta de Jev?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "H01",
+   "familia": "H",
+   "instructions": "¿Que la recomendación cambiara tres veces en pocas horas indica que el método no estaba estabilizado antes de recomendar?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "H02",
+   "familia": "H",
+   "instructions": "¿Hay riesgo de que el analista haya ajustado el análisis para confirmar la intuición del jugador sobre los empates?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "H03",
+   "familia": "H",
+   "instructions": "¿La corrección tardía de las cifras de acertantes sugiere que otras cifras del estudio podrían tener errores no detectados?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "H04",
+   "familia": "H",
+   "instructions": "¿Falta un plan de actualización con alineaciones antes del cierre del sábado a las 14:00?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "H05",
+   "familia": "H",
+   "instructions": "¿La dependencia de una sola fuente de popularidad y de tres pronosticadores hace frágil la conclusión?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "H06",
+   "familia": "H",
+   "instructions": "¿El estudio debería incluir una prueba retrospectiva: aplicar el método completo a 20 jornadas pasadas y ver qué habría cobrado?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "H07",
+   "familia": "H",
+   "instructions": "¿La expectativa realista ('retorno ~98 %') está suficientemente clara para el jugador o puede leerse como 'vamos a ganar'?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "H08",
+   "familia": "H",
+   "instructions": "¿Un solo analista, sin revisión externa, es una debilidad mayor que cualquiera de las técnicas?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "H09",
+   "familia": "H",
+   "instructions": "¿El tiempo invertido (unas horas) es adecuado para una apuesta de 12 €, o el método es desproporcionado?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "H10",
+   "familia": "H",
+   "instructions": "¿La documentación del método permite reproducir los números exactos por una tercera persona?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  },
+  {
+   "id": "H11",
+   "familia": "H",
+   "instructions": "¿Hay algún punto del dossier donde el analista afirme más de lo que sus datos demuestran?",
+   "criteria": {
+    "si": "Sí: el dossier muestra esa debilidad o la hace probable.",
+    "no": "No: el dossier muestra que está cubierta o que no aplica.",
+    "no_determinable": "El dossier no da información suficiente."
+   }
+  }
+ ],
+ "gravedad": {
+  "type": "score",
+  "instructions": "Gravedad conjunta de las debilidades de esta familia para la decisión de apostar 12 € en esta jornada.",
+  "criteria": [
+   "Irrelevante: no cambia nada.",
+   "Menor: afina cifras, no la decisión.",
+   "Media: podría cambiar un doble o un signo.",
+   "Alta: podría cambiar la estructura de la apuesta.",
+   "Crítica: invalida la recomendación."
+  ]
+ },
+ "final": {
+  "type": "noul",
+  "instructions": "Afirmación: el método descrito tiene al menos una debilidad que, por sí sola, invalida la recomendación de la múltiple de 12 €."
+ }
+}
