@@ -205,3 +205,54 @@ Lectura: el retorno del juego para un jugador medio es el 55 %. La múltiple con
 | Boleto | 2 | 1 | **X2** | 1 | **X1** | 1 | 1 | 1 | **X1** | 1 | 1 | 2 | 1 | **1X** | 2-0 |
 
 Contiene A, la columna de Jev y las dos pasadas de Jev salvo el partido 13. No contiene B (13 = 2 queda fuera: 31 % de probabilidad, valor 1,12, el único sacrificio). Partido 13 fijo al 1 porque público y probabilidad coinciden y no aporta valor doblarlo.
+
+## Simulación de jornadas pasadas para mejorar las probabilidades (2 de octubre, madrugada)
+
+**Lo que se probó.** Validación rodante por temporadas (entrenar con todo lo anterior, probar 2023-24, 2024-25 y 2025-27) de un modelo nuevo con anchura de empate variable (goles esperados, tasa reciente de empates de ambos equipos, división) frente al modelo base (solo diferencia de Elo) y frente a las cuotas de las casas.
+
+| Temporada | Base | Nuevo | Casas |
+|---|---|---|---|
+| 2023-24 | 1,0165 | 1,0177 | 1,0018 |
+| 2024-25 | 1,0098 | 1,0098 | 0,9883 |
+| 2025-27 | 1,0185 | 1,0210 | 0,9982 |
+
+Los rasgos de empate no aportan nada: sus coeficientes salen en cero y la precisión de las X que el modelo señala es del 28-38 %, la tasa base. **Ningún rasgo de historial de equipos permite saber en qué partidos cae la X.** Lo único que predice mejor son las cuotas. Conclusión del ejercicio: las probabilidades buenas son las del mercado, y había que traerlas.
+
+**Cuotas de la jornada 11 (cuotasahora.com, 2 de octubre) convertidas a probabilidad sin margen, frente a lo que teníamos y a lo que juega el público:**
+
+| # | Partido | Mercado 1·X·2 | Nuestra mezcla | Público | Dónde se equivocaba la mezcla |
+|---|---|---|---|---|---|
+| 1 | Albacete - Eibar | 35·28·38 | 22·21·57 | 20·21·59 | Eibar no es favorito claro: 38 %, no 57 % |
+| 2 | Almería - Burgos | 58·25·17 | 63·20·17 | 65·24·11 | bien |
+| 3 | Cádiz - Leganés | 33·30·37 | 23·42·35 | 28·33·39 | la X era 30 %, no 42 % |
+| 4 | Sabadell - Andorra | 46·29·26 | 64·23·13 | 59·21·20 | Sabadell 46 %, no 64 % |
+| 5 | R. Sociedad B - Granada | 37·29·35 | 31·43·25 | 35·29·36 | la X era 29 %, no 43 % |
+| 6 | Sporting - Celta B | 61·23·17 | 65·20·16 | 73·17·10 | bien |
+| 7 | Castellón - Ceuta | 75·15·10 | 79·13·8 | 90·6·4 | bien; el público exagera |
+| 8 | Las Palmas - Valladolid | 43·29·27 | 69·21·10 | 58·27·15 | Las Palmas 43 %, no 69 % |
+| 9 | Girona - Mallorca | 43·28·29 | 39·42·18 | 51·26·23 | la X era 28 %, no 42 % |
+| 10 | Córdoba - Tenerife | 48·27·25 | 54·26·20 | 47·27·26 | bien |
+
+Empates esperados en los 10 de Segunda: mercado 2,6 · público 2,3 · nuestra mezcla 2,7. **La tesis de "X infravaloradas" era un artefacto**: venía de los 294 quinielistas de un foro (42 % de X en R. Sociedad B-Granada) y de tres pronosticadores que eligieron X; el mercado pone esas X en el 28-30 %, la tasa base.
+
+**Dónde está el valor de verdad (mercado / público, con probabilidad suficiente):** 1 en Albacete-Eibar (1,73), 2 en Las Palmas-Valladolid (1,83), X y 2 en Sabadell-Andorra (1,36 y 1,28), 2 en Sporting-Celta B (1,66), 2 en Girona-Mallorca (1,28). El patrón es uno solo: **el público sobreapuesta a los favoritos de casa y a Eibar.**
+
+**Retornos recalculados con las probabilidades del mercado** (premios corregidos por el control; el juego devuelve 55 % al jugador medio; estas cifras son comparables entre sí, no absolutas):
+
+| Apuesta | X/col | Retorno | Cobra algo | P(14) | Mejor columna, aciertos medios |
+|---|---|---|---|---|---|
+| Múltiple anterior (X en 3, 5, 9, 14) | 2,0 | 27 % | 30 % | 0,08 % | 8,58 |
+| Columna A ×16 | 3 | 23 % | 9 % | 0,00 % | 7,11 |
+| Columna máx. probabilidad ×16 | 0 | 30 % | 13 % | 0,005 % | 7,44 |
+| **Múltiple nueva (dobles en 1, 4, 10, 13)** | 1,0 | **41 %** | 32 % | 0,08 % | 8,65 |
+| Múltiple máx. aciertos (dobles en 1, 3, 5, 13) | 0 | 40 % | 35 % | 0,09 % | 8,78 |
+
+### Múltiple definitiva, 12 €
+
+| | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | Pleno |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Boleto | **21** | 1 | 2 | **1X** | 1 | 1 | 1 | 1 | 1 | **1X** | 1 | 2 | **12** | 1 | 2-0 |
+
+Base: la columna de máxima probabilidad del mercado (21211111111211, que coincide con la columna de Jev). Dobles donde el público más se equivoca y el partido está abierto: Albacete-Eibar (el 1 vale 1,73), Sabadell-Andorra (X 1,36), Córdoba-Tenerife (abierto, 48/27/25), Madrid CFF-Athletic (sin datos de mercado, 47/22/31). Una X por columna de media; la múltiple cubre de 0 a 2 X.
+
+**Lo honesto, al final del camino:** con las probabilidades del mercado ninguna apuesta de 12 € supera claramente la media del juego; la diferencia entre la mejor y la peor múltiple es evitar los favoritos que el público infla. La jornada es mucho más abierta de lo que parecía (seis partidos con el favorito por debajo del 50 %), y eso significa muchos acertantes de poco y pocos de mucho, para todos.
