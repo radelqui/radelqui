@@ -134,3 +134,29 @@ Sorteo con dinero real: la Quiniela devuelve en premios el 55 % de lo recaudado,
 Siete opiniones por partido: un modelo estadístico, una comunidad de 294 personas, tres pronosticadores públicos y dos pasadas de Jev. Las peñas grandes (Faciles y Rentables, Mejor en Grupo 1X2, Q84, El Pollito de Oro) no publican su columna: solo su historial.
 
 El partido 5 es el único donde la opción descartada (el 2) tiene una fuente a favor, Jev a ciegas, y un pronosticador que lo triplica. Subirlo a triple costaría 24 columnas, 18 €.
+
+## Cuánto se cobraría (jornada 11, recaudación estimada 1,35 M€, sin bote)
+
+Reparto oficial: 55 % de la recaudación a premios · 15 aciertos 7,5 % · 14: 16 % · 13: 7,5 % · 12: 7,5 % · 11: 7,5 % · 10: 9 %. Acertantes estimados a partir de 1,8 M de columnas jugadas que repartan sus signos como los 294 quinielistas; simulación de 20.000 jornadas con nuestras probabilidades. Referencias reales: jornada 9 (1,45 M€, muy difícil) pagó 51.595 € al 13 y 28 € al 10; jornada 10 (0,73 M€, fácil) pagó 2.485 € al 13 y 2,96 € al 10.
+
+| Categoría | Acertantes esperados (mediana) | Premio por apuesta (mediana) |
+|---|---|---|
+| 15 | 1 (ninguno en el 38 % de los casos → bote) | ~32.000 € |
+| 14 | 4 | ~30.000 € |
+| 13 | 124 | ~840 € |
+| 12 | 1.600 | ~67 € |
+| 11 | 11.500 | ~9 € |
+| 10 | 52.000 | ~2,4 € |
+
+La múltiple de 16 columnas, por 12 €:
+
+| Mejor columna | Probabilidad | Cobro total medio (todas las columnas premiadas) |
+|---|---|---|
+| 14 | 0,4 % | 526 € (de 185 a 1.475) |
+| 13 | 3,1 % | 74 € |
+| 12 | 9,6 % | 32 € |
+| 11 | 18 % | 14 € |
+| 10 | 23 % | 4 € |
+| 9 o menos | 46 % | 0 € |
+
+Ganancia media 11,10 € por 12 € jugados (retorno 92 %, mejor que el 55 % del juego porque la columna está mejor que la media). Mediana 2,30 €. Se cobra algo el 54 % de las veces; se recuperan los 12 € el 22 %; más de 100 € el 1,1 %; más de 1.000 € el 0,03 %.
