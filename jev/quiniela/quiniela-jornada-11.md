@@ -160,3 +160,46 @@ La múltiple de 16 columnas, por 12 €:
 | 9 o menos | 46 % | 0 € |
 
 Ganancia media 11,10 € por 12 € jugados (retorno 92 %, mejor que el 55 % del juego porque la columna está mejor que la media). Mediana 2,30 €. Se cobra algo el 54 % de las veces; se recuperan los 12 € el 22 %; más de 100 € el 1,1 %; más de 1.000 € el 0,03 %.
+
+## Escudriñar el lado correcto: dónde se queda solo el que acierta
+
+Carlos tenía razón: las columnas B y la de Jev, con cero empates, están en el lado históricamente improbable.
+
+**Lo que dice el histórico (233 jornadas de Segunda 2018-26, escaladas a 14 partidos):**
+- Empates por jornada: media 4,1. Ninguna X en toda la jornada: 0,4 % de las veces. Una X o ninguna: 8 %. Tres o más: 90 %.
+- El favorito de las casas gana el 46 % de los partidos. Una columna "todo favoritos" acierta 6,5 de 14 de media y **nunca** ha llegado a 12 de 14 en 233 jornadas.
+- El público juega 3,1 X por columna (porcentajes de eduardolosilla, jornada 11); el resultado real traerá 3,5 según nuestras probabilidades y 4,1 según el histórico. Ahí está el hueco.
+
+**Calibración:** el modelo Elo no está plano (nitidez óptima 1,1 sobre 1.830 partidos de 2024-26), así que las probabilidades son creíbles. La fórmula de premios sobreestima un 45 % (control: si el público tuviera razón devolvería un 80 % en vez del 55 % legal), así que los retornos de abajo van corregidos por 0,69.
+
+**Valor por signo** (probabilidad / porcentaje jugado, con la popularidad real del sitio; >1,2 = infravalorado y jugable):
+
+| Partido | Signo infravalorado | Valor | Probabilidad | Público |
+|---|---|---|---|---|
+| 9 Girona - Mallorca | X | 1,63 | 42 % | 26 % |
+| 5 R. Sociedad B - Granada | X | 1,50 | 43 % | 29 % |
+| 3 Cádiz - Leganés | X | 1,27 | 42 % | 33 % |
+| 14 Tenerife F - Logroño F | X | 1,20 | 30 % | 25 % |
+| 8 Las Palmas - Valladolid | 1 | 1,19 | 69 % | 58 % |
+| 10 Córdoba - Tenerife | 1 | 1,15 | 54 % | 47 % |
+
+Las X de Castellón-Ceuta (valor 2,2) y Barcelona F-Real Madrid F (1,2) son décimos de lotería: 13 % y 11 % de probabilidad. No entran en una múltiple de 16.
+
+**Retorno estimado por 12 € (corregido por el control):**
+
+| Apuesta | X por columna | P(14) | Retorno | Cobra algo | Premio 14 si sale | Acertantes de 14 además de nosotros |
+|---|---|---|---|---|---|---|
+| B o Jev, 16 veces | 0 | 1 entre 10.000 | 52-59 % | 20 % | ~1.100 € | ~190 |
+| Múltiple actual (3,5,9,13) | 1,5 | 1 entre 200 | ~95 % | 57 % | | |
+| **Múltiple X delante (3,5,9,14)** | 2,0 | 1 entre 200 | **~98 %** | 56 % | de 1.500 a 28.000 € según la columna que entre | de 7 a 140 |
+| A, 16 veces | 3 | 1 entre 1.400 | ~165 % | 26 % | ~28.000 € | ~7 |
+
+Lectura: el retorno del juego para un jugador medio es el 55 %. La múltiple con las X infravaloradas roza el 100 %, y la columna A sola, con sus tres X, es la única que se juega donde casi nadie está: si entra, la cobran unas 8 columnas en toda España. B y Jev devuelven menos que la media del juego porque compiten con la mayoría.
+
+### Múltiple final recomendada, 12 €
+
+| | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | Pleno |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Boleto | 2 | 1 | **X2** | 1 | **X1** | 1 | 1 | 1 | **X1** | 1 | 1 | 2 | 1 | **1X** | 2-0 |
+
+Contiene A, la columna de Jev y las dos pasadas de Jev salvo el partido 13. No contiene B (13 = 2 queda fuera: 31 % de probabilidad, valor 1,12, el único sacrificio). Partido 13 fijo al 1 porque público y probabilidad coinciden y no aporta valor doblarlo.
