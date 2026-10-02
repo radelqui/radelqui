@@ -111,3 +111,26 @@ Sorteo con dinero real: la Quiniela devuelve en premios el 55 % de lo recaudado,
 - Pronosticadores: betbrothers.es · apuestas-deportivas.es · loterias1fuengirola.com
 - Peñas: eduardolosilla.es (Faciles y Rentables, Mejor en Grupo 1X2) · lapastoreta.es/pena-q84 · elpollitodeoro.com
 - Liga F: en.wikipedia.org/wiki/2026–27_Liga_F · histórico: football-data.co.uk
+
+## Múltiple de 12 € (16 columnas = 4 dobles)
+
+| | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | Pleno |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Boleto | 2 | 1 | **X2** | 1 | **1X** | 1 | 1 | 1 | **1X** | 1 | 1 | 2 | **12** | 1 | 2-0 |
+
+- 16 columnas × 0,75 € = 12,00 €. Contiene las columnas A, B y las dos de Jev.
+- Mejor columna del múltiple: 9,6 aciertos esperados. P(14) 0,4 % · P(13 o más) 3,5 % · P(12 o más) 13 % · P(10 o más) 54 %. La sencilla B tenía P(12 o más) 1,6 %.
+- Lo que queda fuera en cada doble: el 1 en Cádiz-Leganés (23 %), el 2 en R. Sociedad B-Granada (26 %), el 2 en Girona-Mallorca (19 %), la X en Madrid CFF-Athletic (22 %).
+
+### Qué dice cada fuente en los cuatro dobles
+
+| Partido | Modelo 8 años | 294 quinielistas | Bet Brothers | Apuestas-Deportivas | Fuengirola | Jev | Jev a ciegas | Doble |
+|---|---|---|---|---|---|---|---|---|
+| 3 Cádiz - Leganés | 2 (35 %) | 2 (48 %) | X | X | X2 | 2 (0,93) | 2 (0,72) | **X2** |
+| 5 R. Sociedad B - Granada | 1 (44 %) | X (42 %) | X | X | 1X2 | 1 (0,80) | 2 (0,89) | **1X** |
+| 9 Girona - Mallorca | 1 (45 %) | 1 (43 %) | X | X | 1X | 1 (0,91) | 1 (0,89) | **1X** |
+| 13 Madrid CFF - Athletic F | 1 (42 %) | 1 (51 %) | 2 | 1 | 12 | 1 (0,95) | 2 (0,97) | **12** |
+
+Siete opiniones por partido: un modelo estadístico, una comunidad de 294 personas, tres pronosticadores públicos y dos pasadas de Jev. Las peñas grandes (Faciles y Rentables, Mejor en Grupo 1X2, Q84, El Pollito de Oro) no publican su columna: solo su historial.
+
+El partido 5 es el único donde la opción descartada (el 2) tiene una fuente a favor, Jev a ciegas, y un pronosticador que lo triplica. Subirlo a triple costaría 24 columnas, 18 €.
